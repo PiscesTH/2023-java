@@ -17,11 +17,12 @@ public class For_4 {
         int input = scan.nextInt();
         for (int i = input; i > 0; i--) {        //input만큼 실행하는 조건문
             for (int j = 1; j <= input; j++) {   //
-                if (i > j) {
+                System.out.print(i > j ? "_" : "*");
+                /*if (i > j) {
                     System.out.print("_");
                 } else {
                     System.out.print("*");
-                }
+                }*/
             }
             System.out.println();
         }
