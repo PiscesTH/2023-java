@@ -6,7 +6,7 @@ public class Array3 {
         int[] arr2 = new int[arr1.length];
 
         for (int i = 0; i < arr1.length; i++) {
-            arr2[i] = arr1[i];      //새로운 배열로 복사(deep copy)
+            arr2[arr1.length - 1 - i] = arr1[i];      //새로운 배열로 복사(deep copy)
         }
         System.out.println("arr1 == arr2 : "+ (arr1 == arr2));       //한쪽 배열을 바꿔도 다른 쪽 배열이 바뀌지 않는다.
         arr2[1] = 30;

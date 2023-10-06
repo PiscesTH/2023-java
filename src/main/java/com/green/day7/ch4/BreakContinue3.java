@@ -7,7 +7,7 @@ public class BreakContinue3 {
 
             for (int j = 10; j < 15; j++) {
                 if (j == 13) {
-                    break abc;          //이름이 정해진 반복문을 탈출 > continue도 마찬가지.
+                    break abc;          //이름이 정해진 반복문을 탈출
                 }
                 System.out.printf("i : %d - z : %d\n", i, j);
             }
@@ -17,7 +17,7 @@ public class BreakContinue3 {
         for (int i = 0; i < 5; i++) {
             for (int j = 10; j < 15; j++) {
                 if (j == 13) {
-                    continue dsa;       //이름이 정해진 반복문을 재시작
+                    continue dsa;       //이름이 정해진 반복문을 재시작 > break; 랑 같은 효과
                 }
                 System.out.printf("i : %d - z : %d\n", i, j);
             }
