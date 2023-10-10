@@ -48,6 +48,6 @@ public class ArrayEx19 {
 
 
 
-/* System.out.print("번호\t국어\t영어\t수학\t총점\t평균\n");*/
-            /*System.out.printf("%d   \t%d   \t%d   \t%d   \t%d   \t%.1f   \n"
+/* System.out.print("번호\t국어\t영어\t수학\t총점\t평균\n");
+            System.out.printf("%d   \t%d   \t%d   \t%d   \t%d   \t%.1f   \n"
                     , num, score[i][0], score[i][1], score[i][2], sum, avg);*/
