@@ -15,11 +15,11 @@ public class FlowEx29Sol {
             System.out.printf("i = %d ", i);
             int temp = i;
             while (temp > 0) {
-                int modVal = temp % 10;     //modVal : i의 1의 자리
+                int modVal = temp % 10;     //modVal : temp 의 1의 자리
                 if (modVal != 0 && modVal % 3 == 0) {
                     System.out.print("짝");
                 }
-                temp /= 10;                 // temp : >> modVal로 넘어가면서 i 의 10의 자리
+                temp /= 10;                 // temp : >> modVal 로 넘어가면서 i 의 10의 자리
             }
         System.out.println();
         }

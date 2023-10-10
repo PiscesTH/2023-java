@@ -12,7 +12,7 @@ public class ArrayEx7 {
         d
          */
         int[] arr = new int[12];
-        for (int i = 0; i < arr.length; i++) {
+        for (int i = 0; i < arr.length; i++) {      //초기값 0으로 만들기 때문에 i = 1 로 시작 가능.
             arr[i] = i;
         }
         System.out.println(Arrays.toString(arr));
