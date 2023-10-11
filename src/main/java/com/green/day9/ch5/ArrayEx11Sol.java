@@ -1,7 +1,5 @@
 package com.green.day9.ch5;
 
-import com.sun.security.jgss.GSSUtil;
-
 import java.util.Arrays;
 
 public class ArrayEx11Sol {
@@ -36,9 +34,12 @@ public class ArrayEx11Sol {
         }
         */                  //어렵게 푼 방식..
 
-        for (int i = 0; i < LEN; i++) {
-            //int val = numArr[i];   따로 변수를 설정해도 되고 바로 써도 되고.
+        /*for (int i = 0; i < LEN; i++) {
+            //int val = numArr[i];          따로 변수를 설정해도 되고 바로 써도 되고.
             cntArr[numArr[i]]++;
+        }*/
+        for (int val : numArr) {        //enhanced for 문(위의 for문 )
+            cntArr[val]++;
         }
         System.out.println("cntArr");
         System.out.println(Arrays.toString(cntArr));

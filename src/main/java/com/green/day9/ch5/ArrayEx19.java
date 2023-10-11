@@ -19,29 +19,30 @@ public class ArrayEx19 {
         --------------------------
         총점 __   __   __
          */
-        int sum = 0;
-        double avg = 0;
+        //int sum = 0;            //for 안에서 변수 선언하는게 깔끔.
+        //double avg = 0;
         System.out.println("번호\t국어\t영어\t수학\t총점\t평균");
         System.out.println("---------------------------------------------");
         for (int i = 0; i < score.length; i++) {
-            sum = 0;
+            int sum = 0;
             System.out.printf("%d", i + 1);
             for (int j = 0; j < score[i].length; j++) {
                 sum += score[i][j];
                 System.out.printf("\t    %d", score[i][j]);
             }
-            avg = (double) sum / score[i].length;
+            double avg = (double) sum / score[i].length;
             System.out.printf("\t    %d\t    %.1f\n", sum, avg);
         }
         System.out.println("---------------------------------------------");
         System.out.print("총점");
         for (int i = 0; i < score[i].length; i++) {
-            sum = 0;
+            int sum = 0;
             for (int j = 0; j < score.length; j++) {
                 sum += score[j][i];
             }
             System.out.printf("   \t%d", sum);
         }
+        System.out.println();
     }
 }
 
