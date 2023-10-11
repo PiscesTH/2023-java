@@ -17,9 +17,11 @@ public class Tv {
         int channel;
         
         //멤버메소드, 메소드
-        void power() {power = !power;}
-        void channelUp() {channel++;}
+        void power() {power = !power;}  // >> 메소드 정의
+        void channelUp() {channel++;}   // 선언부 { 구현부 } 로 나눔.
+                                        //메소드 호출할 땐 선언부만 적으면 됨.
         void channelDown() {channel--;}
+      //리턴타입 메소드명 (파라미터) << 선언부의 구조
 
         //속성이나 메소드가 없어도 만들 수 있음.
 

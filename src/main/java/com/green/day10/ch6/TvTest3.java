@@ -7,7 +7,17 @@ public class TvTest3 {
         System.out.println("tv1.channel : " + tv1.channel);
 
         tv1.channelUp();
+        tv1.power();
         System.out.println("tv1.channel : " + tv1.channel);
         System.out.println("tv2.channel : " + tv2.channel);
+        System.out.println("tv1.power : " + tv1.power);
     }
 }
+/*
+메모리 할당 >> 삼등분 : 클래스 메모리 / stack 메모리 / heap 메모리
+stack 메모리 >> 선입후출 FILO first in last out
+ex ) Tv tv1 / Tv tv2
+heap 메모리  >> 선입선출 FIFO first in first out
+ex ) [ Tv / channel / 메소드 ](tv1) / [ Tv / channel / 메소드 ](tv2)
+...
+ */
