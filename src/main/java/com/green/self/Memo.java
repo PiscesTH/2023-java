@@ -2,10 +2,16 @@ package com.green.self;
 
 public class Memo {
     /*
-    notion : 학습 내용 정리 추천.
-    2주마다 일지 작성. >> notion 참고.
-    9.21 부터 1주차. ~ 9. 29 >> 2주차
-    10.13 까지 >> 4주차
+    String name = "asdzxc" 에서 index 번호 x 의 문자를 리턴
+    name.charAt(x)
 
+    정수 x를 문자열로 반환
+    String.valueOf(x)
+    Integer.ToString(x)
+    String.format("%d",x)
+
+    문자열 s를 정수로 변환
+    Integer.parseInt(s)
+    Integer.valueOf(s)
     */
 }
