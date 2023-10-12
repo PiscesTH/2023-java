@@ -11,7 +11,7 @@ public class MethodExam2Sol {
 
         if (score == 100) {
             return "A+학점";
-        } else if (score < 70){
+        } else if (score < 70) {
             return "D학점";
         }
         if (score >= 90) {
@@ -24,6 +24,7 @@ public class MethodExam2Sol {
         } else if (scoreD <= 3) {
             opt = "-";
         }
-        return grade + opt + "학점";
+        //return grade + opt + "학점";
+        return String.format("%s%s학점", grade, opt);
     }
 }

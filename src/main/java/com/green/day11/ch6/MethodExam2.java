@@ -40,10 +40,10 @@ public class MethodExam2 {
         }
         if (score == 100) {
             grade = "A";
-            return grade + opt + "학점";
+            return String.format("%s%s학점",grade,opt);
         } else if (score < 70) {
             opt = "";
-            return grade + opt + "학점";
+            return String.format("%s%s학점",grade,opt);
         }
         if (score >= 90) {
             grade = "A";
@@ -57,6 +57,6 @@ public class MethodExam2 {
         } else if (scoreD < 8) {
             opt = "0";
         }
-        return grade + opt + "학점";
+        return String.format("%s%s학점",grade,opt);
     }
 }
