@@ -23,13 +23,16 @@ public class MultiArrayEx4Sol {
         for (int i = 0; i < words.length; i++) {
             String[] wordArr = words[i];
             String goal = wordArr[1];
+
             System.out.printf("Q%d. %s의 뜻은 ? ", i + 1, wordArr[0]);
             String answer = scan.nextLine();
-            /*if (answer.equals(goal)) {
+            /*
+            if (answer.equals(goal)) {
                 System.out.printf("정답입니다.\n");
                 continue;
             }
-            System.out.printf("오답입니다. 정답은 %s입니다.\n", goal);*/
+            System.out.printf("오답입니다. 정답은 %s입니다.\n", goal);
+            */
             System.out.printf(answer.equals(goal) ? "정답입니다.\n" :"오답입니다. 정답은 %s입니다.\n", goal);
         }
         System.out.println("end");

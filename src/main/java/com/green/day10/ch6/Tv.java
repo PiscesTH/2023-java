@@ -11,7 +11,7 @@ public class Tv {
         객체   : 설계도(클래스) 로 만든 것 ? object, instance 라고도 함.
          */
 
-        //속성 (멤버필드, property) : 값을 저장.
+        //속성 (멤버필드, property, 전역 변수) : 값을 저장.
         String color;
         boolean power;
         int channel;
