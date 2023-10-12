@@ -1,16 +1,13 @@
 package com.green.day11.ch6;
 
+import com.green.day10.ch6.NumberBox;
+
 public class MethodExam2Test {
     public static void main(String[] args) {
         MethodExam2 me2 = new MethodExam2();
 
         String r1 = me2.scoreResultOpt(99);
-        String r2 = me2.scoreResultOpt(100);
-        String r3 = me2.scoreResultOpt(79);
-        String r4 = me2.scoreResultOpt(83);
-        String r5 = me2.scoreResultOpt(95);
-        String r6 = me2.scoreResultOpt(30);
-        String r7 = me2.scoreResultOpt(-1);
+
         /*
         100초과 0미만 "점수를 확인해 주세요"
         //score값이 90점보다 같거나 크면 A학점 출력
@@ -22,11 +19,12 @@ public class MethodExam2Test {
         //나머지는 0
          */
         System.out.println(r1);
-        System.out.println(r2);
-        System.out.println(r3);
-        System.out.println(r4);
-        System.out.println(r5);
-        System.out.println(r6);
-        System.out.println(r7);
+        /*
+        3, 4, 5 >> 봄
+        6,7,8 여름 9, 10, 11 가을 12 1 2 겨울
+        나머지 없음
+         */
+        String season = me2.getSeason(5);
+        System.out.println(season);
     }
 }
