@@ -15,15 +15,15 @@ public class DiffPriRef {
 
     }
 
-    public static void changeVal(int num3) {
+    public static void changeVal(int num) {
         System.out.println("changeVal - int");
-        num3 = 10;
-        System.out.println(num3);
+        num = 10;
     }
 
     public static void changeVal(NumBox nb) {
         System.out.println("changeVal - NumBox");
         nb.num = 10;
+
         nb = new NumBox();
         nb.num = 30;
     }
