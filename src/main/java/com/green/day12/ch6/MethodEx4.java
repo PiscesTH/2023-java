@@ -18,10 +18,11 @@ public class MethodEx4 {
             arr[i] += x;
         }
     }
-    int[] randomValFromTo(int len, int x, int y){
-        int[] result = new int[len];
+
+    int[] randomValFromTo(int len, int x, int y) {           //만들어 놓은 메소드 이용 >> MethodExam4 에 있음.
+        int[] result = new int[len];                        //쓰려면 MethodExam4 메소드 처음에 public 을 붙여줘야함.
         for (int i = 0; i < len; i++) {
-            result[i] = (int)(Math.random()*(y-x+1)+x);
+            result[i] = (int) (Math.random() * (y - x + 1) + x);
         }
         return result;
     }
@@ -37,7 +38,7 @@ public class MethodEx4 {
         me4.plusOrigin(arr, 4);
         System.out.println(Arrays.toString(arr));
 
-        int[] rArr2 = me4.randomValFromTo(10,5,20); // (배열크기, 최소, 최대값)
+        int[] rArr2 = me4.randomValFromTo(10, 5, 20); // (배열크기, 최소, 최대값)
         System.out.println(Arrays.toString(rArr2));
     }
 }
