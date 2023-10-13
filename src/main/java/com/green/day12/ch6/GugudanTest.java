@@ -13,5 +13,6 @@ public class GugudanTest {
 */
 
         gugudan.printFromTo(3,6,"------");
+
     }
 }
