@@ -1,7 +1,8 @@
 package com.green.self;
 
 import java.util.Scanner;
-
+//23.09.27
+//23.10.14 수정
 public class ScannerExSelfComple {
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);

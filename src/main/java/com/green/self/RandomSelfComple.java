@@ -1,7 +1,8 @@
 package com.green.self;
 
 import java.util.Scanner;
-
+//23.09.28
+//23.10.14 수정
 public class RandomSelfComple {
     public static void main(String[] args) {
         int grade = 1;
@@ -34,7 +35,6 @@ public class RandomSelfComple {
                     System.out.printf("현재등급 : %d\n", grade);
                     System.out.println("성공");
                     break forge;
-
                 case "Stop":
                     System.out.println("강화를 종료합니다.");
                     System.out.printf("최종등급 : %d\n", grade);

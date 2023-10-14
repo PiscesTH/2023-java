@@ -18,7 +18,6 @@ public class ReferenceParamEx3 {
         System.out.println(Arrays.toString(arr2));*/
     }
 
-    public static void sortArr(int[] arr) {
         /*int len = arr.length - 1;               //5
         for (int i = 0; i < len; i++) {         //i=0    i=1
             for (int j = 0; j < len; j++) {     //j=1  j=2
@@ -27,11 +26,12 @@ public class ReferenceParamEx3 {
                     arr[i] = arr[j];
                     arr[j] = tmp;*/
 
-        int len = arr.length - 1;               //
-        for (int i = len; i > 0; i--) {         //
-            for (int j = 0; j < i; j++) {       //
-                int tmp = arr[i];
+    public static void sortArr(int[] arr) {
+        int len = arr.length - 1;
+        for (int i = len; i > 0; i--) {
+            for (int j = 0; j < i; j++) {
                 if (arr[i] < arr[j]) {
+                    int tmp = arr[i];
                     arr[i] = arr[j];
                     arr[j] = tmp;
                 }
@@ -45,7 +45,7 @@ public class ReferenceParamEx3 {
             for (int j = 0; j < i; j++) {       //i=5 j=0~4 / i=4 j=0~3 / i=3 j= 0~2...
                 int nIdx = j + 1;               // j번 nIdx 번(j 다음 방) 배열 비교
                 if (arr[nIdx] < arr[j]) {       // nIdx번(다음) 방이 작으면
-                    int tmp = arr[j];           // j번(이전) 방 임시저장
+                    int tmp = arr[j];           // j번(이전) 방의 값 임시저장
                     arr[j] = arr[nIdx];         // j번(이전) 방에 작은 값 저장
                     arr[nIdx] = tmp;            // nIdx 방(다음)에 임시저장 한 값 불러오기
                 }
