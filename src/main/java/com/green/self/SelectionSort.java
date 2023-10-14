@@ -2,7 +2,7 @@ package com.green.self;
 
 import java.util.Arrays;
 
-public class SelectionSrot {
+public class SelectionSort {
 
     static int[] arrayCopy(int[] arr){
         int[] resultArr = new int[arr.length];

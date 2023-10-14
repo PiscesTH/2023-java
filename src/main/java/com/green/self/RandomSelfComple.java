@@ -7,40 +7,44 @@ public class RandomSelfComple {
         int grade = 1;
         Scanner scan = new Scanner(System.in);
         System.out.printf("현재등급 : %d\n", grade);
-        System.out.print("go / stop : ");
+        System.out.print("Upgrade / Stop : ");
         String input = scan.nextLine();
-        while (0 <= grade && grade < 11) {
+        forge:
+        while (true) {
             switch (input) {
-                case "go":
-                    int pro = (int) (Math.random() * 100) + 1; //1~100
-                    if (pro > 90) {
+                case "Upgrade":
+                    int probability = (int) (Math.random() * 100) + 1; //1~100
+                    if (probability > 90) {
                         grade += 2;
-                    } else if (pro > 60) {
+                    } else if (probability > 60) {
                         grade++;
-                    } else if (pro <= 40) {
+                    } else if (probability <= 40) {
                         grade--;
                     }
                     if (grade < 0) {
                         System.out.printf("현재등급 : %d\n", grade);
                         System.out.println("실패");
-                        break;
+                        break forge;
                     } else if (grade < 11) {
                         System.out.printf("현재등급 : %d\n", grade);
-                        System.out.print("go / stop : ");
+                        System.out.print("Upgrade / Stop : ");
                         input = scan.nextLine();
                         break;
-                    } else {
-                        System.out.printf("현재등급 : %d\n", grade);
-                        System.out.println("성공");
-                        grade = 100;
-                        break;
                     }
-                case "stop":
+                    System.out.printf("현재등급 : %d\n", grade);
+                    System.out.println("성공");
+                    break forge;
+
+                case "Stop":
+                    System.out.println("강화를 종료합니다.");
                     System.out.printf("최종등급 : %d\n", grade);
-                    grade = 100;
+                    break forge;
+                default:
+                    System.out.println("다시 입력해주세요.");
+                    System.out.print("Upgrade / Stop : ");
+                    input = scan.nextLine();
                     break;
             }
-
         }
     }
 }
