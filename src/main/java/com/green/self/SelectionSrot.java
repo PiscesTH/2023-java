@@ -4,12 +4,16 @@ import java.util.Arrays;
 
 public class SelectionSrot {
 
-    static int[] bulbleSortReverse(int[] arr) {
-        int min = 0;
+    static int[] arrayCopy(int[] arr){
         int[] resultArr = new int[arr.length];
         for (int i = 0; i < arr.length; i++) {
             resultArr[i] = arr[i];
         }
+        return resultArr;
+    }
+
+    static int[] bubbleSortReverse(int[] arr) {
+        int [] resultArr = arrayCopy(arr);
         int times = arr.length - 1;
         for (int i = 0; i < times; i++) {
             for (int j = times; j > i; j--) {
@@ -19,22 +23,41 @@ public class SelectionSrot {
                     resultArr[indexNUm] = resultArr[j];
                     resultArr[j] = tmp;
                 }
-                System.out.printf("Process[%d][%d] : %s\n", i, j, Arrays.toString(resultArr));
-//4321 432 43 4
+                //System.out.printf("Process[%d][%d] : %s\n", i, j, Arrays.toString(resultArr));
             }
         }
         return resultArr;
     }
 
-    static int[] selectionSort (int[] arr){
-
-        return arr;
+    static int[] selectionSort(int[] arr) {
+        int [] resultArr = arrayCopy(arr);
+        int times = arr.length - 1;
+        for (int i = 0; i < times; i++) {
+            int minIndex = i;                                       //i= 0
+            for (int j = i; j < times; j++) {                       //i = j j= 0~3
+                int indexNum = j + 1;                               //indexNum = 1~4
+                if (resultArr[minIndex] > resultArr[indexNum]) {    //tmpIndex=0 j=0 indexNum=1
+                    minIndex = indexNum;                            //minIndex = 0 >> 1
+                }
+                //System.out.println("minIndex : " + minIndex);
+                //System.out.println("indexNum : " + indexNum);
+            }
+            int tmp = resultArr[minIndex];
+            resultArr[minIndex] = resultArr[i];
+            resultArr[i] = tmp;
+            //System.out.printf("process : %s\n", Arrays.toString(resultArr));
+        }
+        return resultArr;
     }
 
     public static void main(String[] args) {
         int[] arr = {4, 2, 1, 5, 3};
-        System.out.println(Arrays.toString(arr));
-        int[] arrSorted = bulbleSortReverse(arr);
-        System.out.println(Arrays.toString(bulbleSortReverse(arr)));
+        System.out.println("arr : " + Arrays.toString(arr));
+        int[] arrSorted = bubbleSortReverse(arr);
+        System.out.println("arrSortedReverse : " + Arrays.toString(bubbleSortReverse(arrSorted)));
+
+        System.out.println("arr : " + Arrays.toString(arr));
+        int[] arrSorted2 = selectionSort(arr);
+        System.out.println("arrSelectionSorted : " + Arrays.toString(selectionSort(arrSorted2)));
     }
 }
