@@ -1,10 +1,11 @@
 package com.green.self;
 
 import java.util.Arrays;
+
 //23.10.14
 public class SelectionSort {
 
-    static int[] arrayCopy(int[] arr){
+    static int[] arrayCopy(int[] arr) {
         int[] resultArr = new int[arr.length];
         for (int i = 0; i < arr.length; i++) {
             resultArr[i] = arr[i];
@@ -13,7 +14,7 @@ public class SelectionSort {
     }
 
     static int[] bubbleSortReverse(int[] arr) {
-        int [] resultArr = arrayCopy(arr);
+        int[] resultArr = arrayCopy(arr);
         int times = arr.length - 1;
         for (int i = 0; i < times; i++) {
             for (int j = times; j > i; j--) {
@@ -29,8 +30,27 @@ public class SelectionSort {
         return resultArr;
     }
 
+    static int[] insertionSortPrac(int[] arr) {
+        int[] resultArr = arrayCopy(arr);
+        for (int i = 1; i < resultArr.length; i++) {
+            int beforeIndex = i - 1;
+            if (i == 1 && resultArr[beforeIndex] > resultArr[i]) {
+                int tmp = resultArr[i];
+                resultArr[i] = resultArr[beforeIndex];
+                resultArr[beforeIndex] = tmp;
+            }
+            if (resultArr[beforeIndex] > resultArr[i]) {
+                int tmp = resultArr[i];
+                resultArr[i] = resultArr[beforeIndex];
+                resultArr[beforeIndex] = tmp;
+                i -= 2;
+            }
+        }
+        return arr;
+    }
+
     static int[] selectionSort(int[] arr) {
-        int [] resultArr = arrayCopy(arr);
+        int[] resultArr = arrayCopy(arr);
         int times = arr.length - 1;
         for (int i = 0; i < times; i++) {
             int minIndex = i;                                       //i= 0
