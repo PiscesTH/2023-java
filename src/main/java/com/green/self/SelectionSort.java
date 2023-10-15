@@ -30,19 +30,22 @@ public class SelectionSort {
         return resultArr;
     }
 
-    static int[] insertionSortPrac(int[] arr) {
+    static int[] selectionSortPrac(int[] arr) {
         int[] resultArr = arrayCopy(arr);
-        for (int i = 1; i < resultArr.length; i++) {
-            int beforeIndex = i - 1;
-            int currentIndex = beforeIndex + 1;
-            while (beforeIndex >= 0 && resultArr[beforeIndex] > resultArr[currentIndex]) {
-                int tmp = resultArr[currentIndex];
-                resultArr[currentIndex] = resultArr[beforeIndex];
-                resultArr[beforeIndex] = tmp;
-                beforeIndex--;
+        final int LEN = resultArr.length;
+        for (int i = 0; i < LEN; i++) {
+            int minIndex = i;
+            for (int j = i; j < LEN; j++) {
+                int afterIndex = j + 1;
+                if (resultArr[minIndex] < resultArr[afterIndex]) {
+                    minIndex = afterIndex;
+                }
             }
+            int tmp = resultArr[i];
+            resultArr[i] = resultArr[minIndex];
+            resultArr[minIndex] = tmp;
         }
-        return resultArr;
+        return arr;
     }
 
     static int[] selectionSort(int[] arr) {
@@ -76,8 +79,6 @@ public class SelectionSort {
         int[] arrSorted2 = selectionSort(arr);
         System.out.println("arrSelectionSorted : " + Arrays.toString(arrSorted2));
 
-        System.out.println("arr : " + Arrays.toString(arr));
-        int[] arrSorted3 = insertionSortPrac(arr);
-        System.out.println("arrInsertionSorted : " + Arrays.toString(arrSorted3));
+
     }
 }
