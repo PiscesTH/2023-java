@@ -34,19 +34,15 @@ public class SelectionSort {
         int[] resultArr = arrayCopy(arr);
         for (int i = 1; i < resultArr.length; i++) {
             int beforeIndex = i - 1;
-            if (i == 1 && resultArr[beforeIndex] > resultArr[i]) {
-                int tmp = resultArr[i];
-                resultArr[i] = resultArr[beforeIndex];
+            int currentIndex = beforeIndex + 1;
+            while (beforeIndex >= 0 && resultArr[beforeIndex] > resultArr[currentIndex]) {
+                int tmp = resultArr[currentIndex];
+                resultArr[currentIndex] = resultArr[beforeIndex];
                 resultArr[beforeIndex] = tmp;
-            }
-            if (resultArr[beforeIndex] > resultArr[i]) {
-                int tmp = resultArr[i];
-                resultArr[i] = resultArr[beforeIndex];
-                resultArr[beforeIndex] = tmp;
-                i -= 2;
+                beforeIndex--;
             }
         }
-        return arr;
+        return resultArr;
     }
 
     static int[] selectionSort(int[] arr) {
@@ -74,10 +70,14 @@ public class SelectionSort {
         int[] arr = {4, 2, 1, 5, 3};
         System.out.println("arr : " + Arrays.toString(arr));
         int[] arrSorted = bubbleSortReverse(arr);
-        System.out.println("arrSortedReverse : " + Arrays.toString(bubbleSortReverse(arrSorted)));
+        System.out.println("arrSortedReverse : " + Arrays.toString(arrSorted));
 
         System.out.println("arr : " + Arrays.toString(arr));
         int[] arrSorted2 = selectionSort(arr);
-        System.out.println("arrSelectionSorted : " + Arrays.toString(selectionSort(arrSorted2)));
+        System.out.println("arrSelectionSorted : " + Arrays.toString(arrSorted2));
+
+        System.out.println("arr : " + Arrays.toString(arr));
+        int[] arrSorted3 = insertionSortPrac(arr);
+        System.out.println("arrInsertionSorted : " + Arrays.toString(arrSorted3));
     }
 }
