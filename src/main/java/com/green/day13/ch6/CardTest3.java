@@ -14,10 +14,10 @@ public class CardTest3 {
         Card[] resultArr = new Card[52];
         String[] shape = {"Spade", "Heart", "Diamond", "Club"};
         int index = 0;
-        for (int i = 0; i < shape.length; i++) {
+        for (String pattern : shape) {
             for (int j = 1; j <= 13; j++) {
                 Card card = new Card();
-                card.pattern = shape[i];
+                card.pattern = pattern;
                 card.denomination = getDenomination(j);
                 resultArr[index++] = card;
             }

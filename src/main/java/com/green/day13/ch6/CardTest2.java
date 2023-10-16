@@ -16,7 +16,7 @@ public class CardTest2 {
         Card[] resultArr = new Card[52];
         for (int i = 0; i < resultArr.length; i++) {
             Card card = new Card();
-            int shape = i / 13;
+            int shape = i / 13;     // (i + 1) % 13 하면 처음이 A 마지막이 K
             switch (shape) {
                 case 0:
                     card.kind = "Spade";

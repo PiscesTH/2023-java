@@ -33,6 +33,19 @@ public class CardTest2Sol {
         return cards;
     }
 
+    public static Card[] makeCardsSol2() {
+        Card[] cards = new Card[52];
+        String[] kinds = {"Spade", "Heart", "Diamond", "Club"};
+        for (int i = 0; i < cards.length; i++) {
+            String kind = kinds[i / 13];
+            String number = getNumberFromInt((i + 1) % 13);
+            cards[i] = new Card();
+            cards[i].kind = kind;
+            cards[i].number = number;
+        }
+        return cards;
+    }
+
     public static void main(String[] args) {
         Card[] cards = makeCardsSol();  //52개의 카드 배열
         for (Card c : cards) {
