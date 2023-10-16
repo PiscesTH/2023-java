@@ -19,7 +19,7 @@ public class CardTest2Sol {
 
     public static Card[] makeCardsSol() {
         Card[] cards = new Card[52];
-        String[] kinds = {"Spade", "Heart", "Diamond", "Club"};
+        String[] kinds = {"Spade", "Heart", "Diamond", "Club"};     //배열 이용.
         int cnt = 0;
         for (int i = 0; i < kinds.length; i++) {
             for (int j = 1; j <= 13; j++) {
