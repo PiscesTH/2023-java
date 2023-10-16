@@ -24,10 +24,10 @@ public class CardTest2Sol {
         for (int i = 0; i < kinds.length; i++) {
             for (int j = 1; j <= 13; j++) {
                 String number = getNumberFromInt(j);
-                Card c = new Card();
-                c.kind = kinds[i];
-                c.number = number;
-                cards[cnt++] = c;
+                Card card = new Card();
+                card.kind = kinds[i];
+                card.number = number;
+                cards[cnt++] = card;
             }
         }
         return cards;

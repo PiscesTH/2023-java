@@ -8,7 +8,7 @@ public class CardTest2 {
     public static void main(String[] args) {
         Card[] cards = makeCards();  //52개의 카드 배열
         for (int i = 0; i < cards.length; i++) {
-            System.out.println(cards[i].kind + " " + cards[i].number);
+            System.out.printf("%s (%s)\n",cards[i].kind ,cards[i].number);
         }
     }
 
