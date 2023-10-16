@@ -8,5 +8,6 @@ public class Sample {
         int[] arr = {10};
         System.out.println(arr[0]);
         arr[0]= 1000;
+
     }
 }
