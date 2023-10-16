@@ -17,8 +17,15 @@ public class BubbleSort {
     public static int[] bubbleSort(int[] arr) {
         int[] resultArr = SelectionSort.arrayCopy(arr);
         int times = resultArr.length - 1;
-        for (int i = 0; i < times; i++) {
-            
+        for (int i = times; i > 0; i--) {
+            for (int j = 0; j < i; j++) {
+                int nextIndex = j + 1;
+                if (resultArr[j] > resultArr[nextIndex]) {
+                    int tmp = resultArr[i];
+                    resultArr[i] = resultArr[nextIndex];
+                    resultArr[nextIndex] = tmp;
+                }
+            }
         }
         return resultArr;
     }

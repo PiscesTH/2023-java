@@ -7,13 +7,36 @@ class Card {
     void printYourSelf() {
         System.out.printf("%s-%s\n", pattern, denomination);
     }
-
 }
 
 public class CardTest3 {
     public static Card[] makeCards() {
-        Card[] result = new Card[52];
-        return result;
+        Card[] resultArr = new Card[52];
+        String[] shape = {"Spade", "Heart", "Diamond", "Club"};
+        int index = 0;
+        for (int i = 0; i < shape.length; i++) {
+            for (int j = 1; j <= 13; j++) {
+                Card card = new Card();
+                card.pattern = shape[i];
+                card.denomination = getDenomination(j);
+                resultArr[index++] = card;
+            }
+        }
+        return resultArr;
+    }
+
+    public static String getDenomination(int x) {
+        switch (x) {
+            case 1:
+                return "A";
+            case 11:
+                return "J";
+            case 12:
+                return "Q";
+            case 13:
+                return "K";
+        }
+        return String.valueOf(x);
     }
 
     public static void main(String[] args) {
@@ -29,5 +52,9 @@ public class CardTest3 {
 
         Card[] cards = makeCards();
         System.out.println(cards.length);
+
+        for (Card card : cards) {
+            card.printYourSelf();
+        }
     }
 }
