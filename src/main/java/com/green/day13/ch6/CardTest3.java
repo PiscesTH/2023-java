@@ -50,7 +50,7 @@ public class CardTest3 {
         c2.denomination = "J";
         c2.printYourSelf();*/
 
-        Card[] cards = makeCards();
+        Card[] cards = CardTest3.makeCards();
         System.out.println(cards.length);
 
         for (Card card : cards) {

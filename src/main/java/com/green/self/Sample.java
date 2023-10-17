@@ -2,6 +2,11 @@ package com.green.self;
 
 import java.util.Random;
 
+class SampleTest{
+    SampleTest(int x){}
+}
+
+
 public class Sample {
     public static void main(String[] args) {
         //home test
@@ -9,5 +14,6 @@ public class Sample {
         System.out.println(arr[0]);
         arr[0]= 1000;
 
+        SampleTest test = new SampleTest(5);
     }
 }

@@ -8,4 +8,7 @@ public class OverloadingTest {
     void print(int x, int y){}
     void print(String s, int y){}
     void print(int x, String s){}
+    int print(int x, boolean t){
+        return x;
+    }
 }
