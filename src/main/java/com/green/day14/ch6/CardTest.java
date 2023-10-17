@@ -8,7 +8,7 @@ public class CardTest {
 
         //Card c1 = cd.getCard(); //랜덤한 카드 한장 호출. 호출한 카드 삭제.
                                 //삭제된 카드 또 나오면 새로 뽑기.
-
+        // 랜덤한 카드(셔플) / 한장 호출 로 나눠서 할 수도.
         for (int i = 0; i < 52; i++) {
             Card c = cd.getCard();
             c.printMySelf();

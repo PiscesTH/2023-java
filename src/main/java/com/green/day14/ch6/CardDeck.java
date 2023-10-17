@@ -41,18 +41,22 @@ public class CardDeck {
 
     public Card getCard() {
         Card resultCard = new Card();       //새 객체 생성할 필요는 없음.
-        for (int i = 0; i < cards.length; i++) {
+        for (int i = 0; i < cards.length;) {    //while 사용 하는게... i++ i-- 할 필요 없어지니까.
             int random = (int) (Math.random() * cards.length);
             if (cards[random] != null) {
                 resultCard = cards[random];
                 cards[random] = null;
                 break;
-            } i--;
+            }
         }return resultCard;
+    }
+    public Card[] shuffle(){
+
+        return null;
     }
 
     public Card getCardSol(){
-        Card c = null;
+        Card c;
         while(true){
             int rIdx = (int)(Math.random()*cards.length);
             c = cards[rIdx];
