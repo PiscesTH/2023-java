@@ -37,12 +37,16 @@ class Deck {
     void init() {        //리턴타입 존재
         int index = 0;
         int[] pattern = {Card.CLOVER, Card.HEART, Card.DIAMOND, Card.SPADE};
-        for (int i = 0; i < pattern.length; i++) {
+        for (int i : pattern) {
             for (int j = 1; j <= Card.NUM_MAX; j++) {
-                cardArr[index++] = new Card(pattern[i], j);
+                cardArr[index++] = new Card(i, j);
             }
         }
+        for (Card card : cardArr) {
+            System.out.println(card);
+        }
     }
+
     public Card pick(int index) {
         return cardArr[index];
     }
@@ -56,6 +60,7 @@ public class DeckTest {
     public static void main(String[] args) {
         Deck deck = new Deck();
         Card c1 = deck.pick(51);    //10번 방 카드
+        System.out.println("----------");
         System.out.println(c1);
         System.out.println("----------");
         Card c2 = deck.pick();
