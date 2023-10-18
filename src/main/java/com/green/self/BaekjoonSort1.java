@@ -1,6 +1,5 @@
 package com.green.self;
 
-import java.util.Arrays;
 import java.util.Scanner;
 
 public class BaekjoonSort1 {
@@ -59,9 +58,7 @@ N개의 수가 주어졌을 때, 이를 오름차순으로 정렬하는 프로�
         System.out.print("숫자의 개수를 정해주세요. : ");
         int len = scan.nextInt();
         int[] numArr = makeArr(len);
-        System.out.println(Arrays.toString(numArr));
         int[] sortedArr = sortArr(numArr);
-        System.out.println(Arrays.toString(sortedArr));
         for (int i : sortedArr) {
             System.out.println(i);
         }
