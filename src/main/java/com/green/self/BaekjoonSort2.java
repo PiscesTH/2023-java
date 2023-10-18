@@ -13,7 +13,7 @@ public class BaekjoonSort2 {
 첫째 줄에 정렬하려고 하는 수 N이 주어진다. N은 1,000,000,000보다 작거나 같은 자연수이다.
 
 출력
-첫째 줄에 자리수를 내림차순으로 정렬한 수를 출력한
+첫째 줄에 자리수를 내림차순으로 정렬한 수를 출력한다.
          */
         Scanner scan = new Scanner(System.in);
         String input = scan.nextLine();
@@ -26,13 +26,14 @@ public class BaekjoonSort2 {
         for (int i = 1; i < charArr.length; i++) {
             int beforeIndex = i - 1;
             int currentIndex = beforeIndex + 1;
-            while (beforeIndex >= 0 && charArr[beforeIndex] > charArr[currentIndex]){
+            while (beforeIndex >= 0 && charArr[beforeIndex] > charArr[currentIndex]) {
                 char tmp = charArr[beforeIndex];
                 charArr[beforeIndex] = charArr[currentIndex];
                 charArr[currentIndex] = tmp;
                 beforeIndex--;
+                currentIndex--;
             }
         }
-        System.out.println(Arrays.toString(charArr));
+        System.out.printf("정답 : %s\n", Arrays.toString(charArr));
     }
 }
