@@ -30,6 +30,11 @@ class CaptionTv2 extends Tv2 {
     void printParentChannel() {
         System.out.printf("P-channel : %d\n", super.channel);
     }
+
+    @Override       //overriding 확인 가능.
+    void channelUp() {
+        channel += 2;
+    }       //overriding : 부모 클래스의 메소드를 재 정의.
 }
 
 public class CaptionTvTest2 {

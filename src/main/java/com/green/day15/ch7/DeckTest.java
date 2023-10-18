@@ -11,10 +11,13 @@ class Card {
     int kind;
     int number;
 
+    @Override
+    public String toString() {   //.toString() 오버라이딩
+        return String.format("kind : %d, number : %d", kind, number);
+    }
+
     public Card() {
-        //kind = SPADE;
-        //number = 1;
-        this(SPADE, 1);
+        this(SPADE, 3);
     }
 
     public Card(int x, int y) {
@@ -23,13 +26,39 @@ class Card {
     }
 }
 
+class Deck {
+    final int CARD_NUM = 52;
+    Card[] cardArr = new Card[CARD_NUM];
+
+    public Deck() {
+        init();
+    }
+
+    void init() {        //리턴타입 존재
+        int index = 0;
+        int[] pattern = {Card.CLOVER, Card.HEART, Card.DIAMOND, Card.SPADE};
+        for (int i = 0; i < pattern.length; i++) {
+            for (int j = 1; j <= Card.NUM_MAX; j++) {
+                cardArr[index++] = new Card(pattern[i], j);
+            }
+        }
+    }
+    public Card pick(int index) {
+        return cardArr[index];
+    }
+
+    public Card pick() {
+        return cardArr[(int) (Math.random() * CARD_NUM)];
+    }
+}
+
 public class DeckTest {
     public static void main(String[] args) {
-        Card c = new Card();
-        System.out.printf("c.kind : %d, c.number : %d\n", c.kind, c.number); // 4, 1
-
-        Card c2 = new Card(Card.CLOVER, 4);
-        System.out.printf("c2.kind : %d, c2.number : %d\n", c2.kind, c2.number); // 1. 4
-
+        Deck deck = new Deck();
+        Card c1 = deck.pick(51);    //10번 방 카드
+        System.out.println(c1);
+        System.out.println("----------");
+        Card c2 = deck.pick();
+        System.out.println(c2);
     }
 }
