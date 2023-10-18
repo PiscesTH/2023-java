@@ -27,12 +27,13 @@ public class InsertionSort {
         int[] resultArr = SelectionSort.arrayCopy(arr);
         for (int i = 1; i < resultArr.length; i++) {
             int beforeIndex = i - 1;
-            int currentIndex = beforeIndex + 1;
+            int currentIndex = i;
             while (beforeIndex >= 0 && resultArr[beforeIndex] > resultArr[currentIndex]) {
                 int tmp = resultArr[currentIndex];
                 resultArr[currentIndex] = resultArr[beforeIndex];
                 resultArr[beforeIndex] = tmp;
                 beforeIndex--;
+                currentIndex--;
             }
         }
         return resultArr;
