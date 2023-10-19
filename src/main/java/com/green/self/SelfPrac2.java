@@ -3,7 +3,7 @@ package com.green.self;
 import java.util.Arrays;
 import java.util.Scanner;
 
-public class BaekjoonSort2 {
+public class SelfPrac2 {
     public static void main(String[] args) {
         /*
 문제

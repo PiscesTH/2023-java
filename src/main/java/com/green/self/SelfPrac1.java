@@ -2,7 +2,7 @@ package com.green.self;
 
 import java.util.Scanner;
 
-public class BaekjoonSort1 {
+public class SelfPrac1 {
 
     static int[] makeArr(int len) {
         Scanner scan = new Scanner(System.in);
