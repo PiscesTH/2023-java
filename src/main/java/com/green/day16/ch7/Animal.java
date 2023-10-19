@@ -40,6 +40,7 @@ class AnimalTest2 {
         Animal ani = new Bulldog();
         System.out.println(ani instanceof Bulldog);
         System.out.println(ani instanceof Dog);
+        Bulldog a = (Bulldog)ani ;
         System.out.println(ani instanceof Animal);
         System.out.println(ani instanceof Cat);
 
