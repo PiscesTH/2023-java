@@ -2,9 +2,9 @@ package com.green.day13.ch6;
 
 public class MyMath2 {
     int num;
-    static int sNum;
+    public static int sNum;
 
-    static void print() {
+    public static void print() {
         System.out.printf("sNum : %d\n", sNum);  //num은 사용 불가.
     }
 

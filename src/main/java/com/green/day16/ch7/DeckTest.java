@@ -1,4 +1,4 @@
-package com.green.day15.ch7;
+package com.green.day16.ch7;
 
 class Card {
     static final int KIND_MAX = 4; //카드 무늬의 수
@@ -42,6 +42,14 @@ class Deck {
                 cardArr[index++] = new Card(i, j);
             }
         }
+    }
+    public void shuffle(){
+        for (int i = 0; i < cardArr.length; i++) {
+            int rIndex = (int)(Math.random()*CARD_NUM);
+            Card tmp = cardArr[i];
+            cardArr[i] = cardArr[rIndex];
+            cardArr[rIndex] = tmp;
+        }
         for (Card card : cardArr) {
             System.out.println(card);
         }
@@ -52,18 +60,13 @@ class Deck {
     }
 
     public Card pick() {
-        return cardArr[(int) (Math.random() * CARD_NUM)];
+        return pick((int) (Math.random() * CARD_NUM));
     }
 }
 
 public class DeckTest {
     public static void main(String[] args) {
         Deck deck = new Deck();
-        Card c1 = deck.pick(51);    //10번 방 카드
-        System.out.println("----------");
-        System.out.println(c1);
-        System.out.println("----------");
-        Card c2 = deck.pick();
-        System.out.println(c2);
+        deck.shuffle();
     }
 }

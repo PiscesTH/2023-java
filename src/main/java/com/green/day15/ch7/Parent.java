@@ -6,7 +6,7 @@ public class Parent {
 
 class Child extends Parent {
     public Child() {
-        super();        // 부모 클래스 호출 >> 필수. 안 적으면 컴파일러가 자동으로 입력.
+        super();        // 부모 클래스 호출 >> 객체 생성에 한번은 호출 필수. 안 적으면 컴파일러가 자동으로 입력.
     }
 
     void play() {

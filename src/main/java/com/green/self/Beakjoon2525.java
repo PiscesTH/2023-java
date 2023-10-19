@@ -1,7 +1,20 @@
 package com.green.self;
 
 public class Beakjoon2525 {
+    private int hour;
+    private int minute;
+
+    public void setHour(int hour) {
+        this.hour = hour;
+    }
+
+    public void setMinute(int minute) {
+        this.minute = minute;
+    }
+
     public static void main(String[] args) {
+        Beakjoon2525 oven = new Beakjoon2525();
+        oven.setHour(2);
 /*
 문제
 KOI 전자에서는 건강에 좋고 맛있는 훈제오리구이 요리를 간편하게 만드는 인공지능 오븐을 개발하려고 한다.
@@ -18,5 +31,6 @@ KOI 전자에서는 건강에 좋고 맛있는 훈제오리구이 요리를 간�
 첫째 줄에 종료되는 시각의 시와 분을 공백을 사이에 두고 출력한다. (단, 시는 0부터 23까지의 정수, 분은 0부터 59까지의 정수이다.
 디지털 시계는 23시 59분에서 1분이 지나면 0시 0분이 된다.)
  */
+
     }
 }
