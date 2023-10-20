@@ -11,7 +11,7 @@ class Card {
     int kind;
     int number;
 
-    @Override   //@애노테이션 ? Annotation >> 없어도 오버라이딩은 가능. 검증용. 오류 없으면 제대로 된 것/
+    @Override   //@애노테이션 ? Annotation >> 없어도 오버라이딩은 가능. 검증용. 오류 없으면 제대로 된 것
     public String toString() {   //.toString() 오버라이딩 >> 원래 Object 객체에 있음
         return String.format("kind : %d, number : %d", kind, number);
     }
