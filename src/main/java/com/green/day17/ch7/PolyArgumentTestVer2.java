@@ -15,11 +15,11 @@ class Product2 {
     public Product2(String name, int price) {
         this.name = name;
         this.price = price;
-        bonusPoint = (int) (price * 0.1);
+        bonusPoint = price / 10;
     }
 
     @Override
     public String toString() {
-        return String.format("%s. price : %d, bonusPoint : %d\n", name, price, bonusPoint);
+        return String.format("%s. price : %d, bonusPoint : %d", name, price, bonusPoint);
     }
 }
