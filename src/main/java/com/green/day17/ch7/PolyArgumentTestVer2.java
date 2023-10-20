@@ -39,18 +39,18 @@ class PolyArgumentTestVer2_3 {
     }
 }
 
-class Buyer2 {   //money, bonusPoint, Product2 주소값 10개 저장 가능
+class Buyer2 {
     private int money;
     private int bonusPoint;
     private Product2[] pArr;
     private int index;
-    private final int iMoney;
+    private final int INITIAL_MONEY;
 
     public Buyer2() {
         money = 10000;
         bonusPoint = 0;
         pArr = new Product2[10];
-        iMoney = money;
+        INITIAL_MONEY = money;
     }
 
     public void buy(Product2 product2) {
@@ -71,16 +71,13 @@ class Buyer2 {   //money, bonusPoint, Product2 주소값 10개 저장 가능
     }
 
     public void summary() {
-        int used = iMoney - money;
+        int used = INITIAL_MONEY - money;
         System.out.printf("구매 금액 : %d만원, 남은 금액 : %d, 포인트 : %d\n", used, money, bonusPoint);
     }
 
     public void getPurchaseList() {
         int comCnt = 0, tvCnt = 0 , auidoCnt = 0;
-        for (int i = 0; i < pArr.length; i++) {
-            if (pArr[i] == null) {
-                break;
-            }
+        for (int i = 0; i < index; i++) {
             switch (pArr[i].getName()) {
                 case "Computer":
                     comCnt++;
@@ -90,7 +87,6 @@ class Buyer2 {   //money, bonusPoint, Product2 주소값 10개 저장 가능
                     break;
                 case "Audio":
                     auidoCnt++;
-                    break;
             }
         }
         System.out.printf("컴퓨터 : %d대, Tv : %d대, 오디오 : %d대\n", comCnt, tvCnt, auidoCnt);
