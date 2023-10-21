@@ -56,6 +56,7 @@ class Forge{
 
 class User{
     private int money;
+    private Item inventory;
 }
 class Item{
     private String category, name;
