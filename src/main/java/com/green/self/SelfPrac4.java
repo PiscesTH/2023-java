@@ -4,10 +4,9 @@ import java.util.Scanner;
 
 public class SelfPrac4 {
     public static void main(String[] args) {
-        Character c1 = new Character();
-        System.out.println(c1.getInventory().getName());
-        System.out.println(c1.getInventory().getCategory());
-
+        Character c1 = new Character();     //캐릭터 생성, 무기 선택
+        c1.checkInventory();                //무기 확인
+        c1.goForge();                       //대장간 입장 & 강화 시작
     }
 }
 
@@ -15,18 +14,16 @@ class Forge {
     private final Scanner scan = new Scanner((System.in));
     private Item characterItem;
 
-
-    public Forge(Character character) {
-        characterItem = character.getInventory();
-        System.out.printf("선택 된 장비 : %s\n", characterItem.getName());
+    public Forge(Item item) {
+        characterItem = item;
+        System.out.printf("현재 장비 : %s\n", characterItem.getName());
     }
 
     public void startUpgrade() {
-        System.out.printf("현재등급 : %d\n", characterItem.getGrade());
+        System.out.printf("현재 등급 : %d\n", characterItem.getGrade());
         System.out.print("Upgrade / Stop : ");
         String input = scan.nextLine();
         int tmpGrade = characterItem.getGrade();
-        forge:
         while (true) {
             switch (input) {
                 case "Upgrade":
@@ -40,21 +37,21 @@ class Forge {
                     }
                     characterItem.setGrade(tmpGrade);
                     if (tmpGrade < 0) {
-                        System.out.printf("현재등급 : %d\n", tmpGrade);
-                        System.out.println("실패");
+                        System.out.printf("현재 등급 : %d\n", tmpGrade);
+                        System.out.println("장비 파괴");
                         return;
                     } else if (tmpGrade < 11) {
-                        System.out.printf("현재등급 : %d\n", tmpGrade);
+                        System.out.printf("현재 등급 : %d\n", tmpGrade);
                         System.out.print("Upgrade / Stop : ");
                         input = scan.nextLine();
                         break;
                     }
-                    System.out.printf("현재등급 : %d\n", tmpGrade);
+                    System.out.printf("현재 등급 : %d\n", tmpGrade);
                     System.out.println("성공");
                     return;
                 case "Stop":
                     System.out.println("강화를 종료합니다.");
-                    System.out.printf("최종등급 : %d\n", tmpGrade);
+                    System.out.printf("최종 등급 : %d\n", tmpGrade);
                     return;
                 default:
                     System.out.println("다시 입력해주세요.");
@@ -77,29 +74,67 @@ class Character {
                 (LongSword / ShortSword / Bow )
                 입력창 :\s""");
         String input = scan.nextLine();
+        select:
         while (true) {
             switch (input) {
                 case "LongSword":
                     inventory = new LongSword();
-                    return;
+                    break select;
                 case "ShortSword":
                     inventory = new ShortSword();
-                    return;
+                    break select;
                 case "Bow":
                     inventory = new Bow();
-                    return;
+                    break select;
                 default:
                     System.out.println("다시 입력해주세요.");
                     input = scan.nextLine();
             }
         }
+        System.out.printf("%s를 선택했습니다.\n", inventory.getName());
+    }
+
+    public void setInventory(Item inventory) {
+        this.inventory = inventory;
     }
 
     public Item getInventory() {
         return inventory;
     }
-    public void goForge(){
-        
+
+    public void checkInventory() {
+        System.out.printf("%s를 가지고 있습니다.\n", inventory.getName());
+    }
+
+    public void goForge() {
+        System.out.println("위치 : 대장간");
+        Forge forge = new Forge(inventory);
+        System.out.print("강화 시작 / 나가기 : ");
+        String input = scan.nextLine();
+        while (true) {
+            switch (input) {
+                case "강화 시작":
+                    forge.startUpgrade();
+                    if (inventory.getGrade() < 0) {
+                        inventory.setName("None");
+                        inventory.setCategory("None");
+                        System.out.println("게임을 종료합니다.");
+                        return;
+                    }
+                    if (inventory.getGrade() > 11) {
+                        System.out.println("게임을 종료합니다.");
+                        return;
+                    }
+                    goForge();
+                case "나가기":
+                    System.out.println("대장간 밖으로 나갑니다.");
+                    System.out.println("게임을 종료합니다.");
+                    return;
+                default:
+                    System.out.print("다시 입력해 주세요.");
+                    input = scan.nextLine();
+            }
+        }
     }
 }
 
@@ -110,6 +145,11 @@ class Item {
     public Item(String category) {
         this.category = category;
         grade = 1;
+        name = "None";
+    }
+
+    public void setCategory(String category) {
+        this.category = category;
     }
 
     public void setGrade(int grade) {
