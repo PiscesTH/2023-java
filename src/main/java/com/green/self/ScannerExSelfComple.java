@@ -7,15 +7,11 @@ public class ScannerExSelfComple {
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
         System.out.print("1~20 사이 숫자를 하나 입력해주세요. : ");
-        //String s = scan.nextLine();
-        //int x = Integer.parseInt(s);
         int goal = scan.nextInt();
         System.out.println("\n\n\n\n");
 
         while (goal > 20 || goal < 1) {
             System.out.print("1~20 사이 숫자를 다시 입력해주세요. : ");
-            //String s1 = scan.nextLine();
-            //s = s1;
             goal = scan.nextInt();
             System.out.println("\n\n\n\n");
 
