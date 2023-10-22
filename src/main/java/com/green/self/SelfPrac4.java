@@ -5,12 +5,12 @@ import java.util.Scanner;
 public class SelfPrac4 {
     public static void main(String[] args) {
         Character c1 = new Character();     //캐릭터 생성, 무기 선택
-        c1.checkInventory();                //무기 확인
         c1.goForge();                       //대장간 입장 & 강화 시작
+        c1.checkInventory();                //무기 확인
 
         Character c2 = new Character();     //캐릭터 생성, 무기 선택
-        c2.checkInventory();                //무기 확인
         c2.goForge();                       //대장간 입장 & 강화 시작
+        c2.checkInventory();                //무기 확인
     }
 }
 
@@ -21,7 +21,6 @@ class Forge {
 
     public Forge(Item item) {
         characterItem = item;
-        System.out.printf("현재 장비 : %s\n", characterItem.getName());
     }
 
     public static Forge makeForge(Item item) {
@@ -33,7 +32,7 @@ class Forge {
     }
 
     public void startUpgrade() {
-        System.out.printf("현재 등급 : %d\n", characterItem.getGrade());
+        System.out.printf("현재 등급 : %d등급\n", characterItem.getGrade());
         System.out.print("Upgrade / Stop : ");
         String input = scan.nextLine();
         while (true) {
@@ -41,24 +40,24 @@ class Forge {
                 case "Upgrade":
                     upgradeProbability(characterItem.getGrade());
                     if (characterItem.getGrade() < 0) {
-                        System.out.printf("현재 등급 : %d\n", characterItem.getGrade());
+                        System.out.printf("현재 등급 : %d등급\n", characterItem.getGrade());
                         System.out.println("장비 파괴");
                         return;
                     } else if (characterItem.getGrade() < 11) {
-                        System.out.printf("현재 등급 : %d\n", characterItem.getGrade());
+                        System.out.printf("현재 등급 : %d등급\n", characterItem.getGrade());
                         System.out.print("Upgrade / Stop : ");
                         input = scan.nextLine();
                         break;
                     }
-                    System.out.printf("현재 등급 : %d\n", characterItem.getGrade());
+                    System.out.printf("현재 등급 : %d등급\n", characterItem.getGrade());
                     System.out.println("성공");
                     return;
                 case "Stop":
                     System.out.println("강화를 종료합니다.");
-                    System.out.printf("최종 등급 : %d\n", characterItem.getGrade());
+                    System.out.printf("최종 등급 : %d등급\n", characterItem.getGrade());
                     return;
                 default:
-                    System.out.println("다시 입력해주세요.");
+                    System.out.print("다시 입력해주세요. : ");
                     System.out.print("Upgrade / Stop : ");
                     input = scan.nextLine();
             }
@@ -117,16 +116,17 @@ class Character {
     }
 
     public void checkInventory() {
-        System.out.printf("%s를 가지고 있습니다.\n", inventory.getName());
+        if ("None".equals(inventory.getName())) {
+            System.out.println("소지중인 장비가 없습니다.");
+            return;
+        }
+        System.out.printf("+%d %s를 가지고 있습니다.\n", inventory.getGrade(), inventory.getName());
     }
 
     public void goForge() {
         System.out.println("위치 : 대장간");
         Forge forge = Forge.makeForge(inventory);
-        if ("None".equals(inventory.getName())) {
-            System.out.println("소지중인 장비가 없습니다.");
-            return;
-        }
+        checkInventory();
         System.out.print("강화 시작 / 나가기 : ");
         String input = scan.nextLine();
         while (true) {
@@ -134,6 +134,7 @@ class Character {
                 case "강화 시작":
                     forge.startUpgrade();
                     if (inventory.getGrade() < 0) {
+                        inventory.setGrade(0);
                         inventory.setName("None");
                         inventory.setCategory("None");
                         return;
@@ -141,7 +142,6 @@ class Character {
                     if (inventory.getGrade() > 10) {
                         return;
                     }
-                    goForge();
                 case "나가기":
                     System.out.println("밖으로 나갑니다.");
                     return;
