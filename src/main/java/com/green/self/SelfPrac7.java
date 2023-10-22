@@ -15,12 +15,13 @@ class SalaryMan {
         salary = 1000000;
         annualGross = salary * 5;
     }
-    public SalaryMan(int salary){
+
+    public SalaryMan(int salary) {
         this.salary = salary;
         annualGross = salary * 5;
     }
 
-    public int getAnnualGross(){
+    public int getAnnualGross() {
         return annualGross;
     }
 }

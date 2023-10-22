@@ -32,8 +32,7 @@ class Account {
     }
 
     public Account(long balance, String owner) {
-        this.balance = balance;
-        this.owner = owner;
+        this(owner, balance);
     }
 
     public void setOwner(String owner) {
@@ -52,16 +51,16 @@ class Account {
         return balance;
     }
 
-    public long deposit(long amount) {
-        return balance += amount;
+    public void deposit(long amount) {
+        balance += amount;
     }
 
-    public long withdraw(long amount) {
+    public void withdraw(long amount) {
         if (balance < amount) {
             System.out.println("잔액이 부족합니다.");
             System.out.printf("현재 잔액은 %s 입니다.\n", balance);
-            return balance;
+            return;
         }
-        return balance -= amount;
+        balance -= amount;
     }
 }
