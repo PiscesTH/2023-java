@@ -1,10 +1,6 @@
 package com.green.day16.ch7;
 
-public class Animal {
-    public void crying() {
-        System.out.println("동물이 운다.");
-    }
-}
+
 
 class AnimalTest {
     public static void main(String[] args) {
@@ -38,11 +34,11 @@ class AnimalTest2 {
         Bulldog bulldog = new Bulldog();
 
         Animal ani = new Bulldog();
-        System.out.println(ani instanceof Bulldog);
-        System.out.println(ani instanceof Dog);
-        Bulldog a = (Bulldog)ani ;
-        System.out.println(ani instanceof Animal);
-        System.out.println(ani instanceof Cat);
+        System.out.println(ani instanceof Bulldog); //true
+        System.out.println(ani instanceof Dog);     //true
+        System.out.println(ani instanceof Animal);  //true
+        System.out.println(ani instanceof Cat);     //false
+        Bulldog a = (Bulldog)ani ;                  //가능
 
         callCrying(dog);
         callCrying(cat);
@@ -57,6 +53,11 @@ class AnimalTest2 {
     }
 }
 
+public class Animal {
+    public void crying() {
+        System.out.println("동물이 운다.");
+    }
+}
 class Dog extends Animal {
     @Override
     public void crying() {
