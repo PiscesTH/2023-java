@@ -27,20 +27,23 @@ class NumberBaseball {
         System.out.println(Arrays.toString(gameNumbers));
     }
 
-    private boolean isContinueCheckResult(int[] userArr) {
-        int strike = 0, ball = 0, out = 0;
-        for (int i = 0; i < userArr.length; i++) {
-            for (int j = 0; j < userArr.length; j++) {
-                if(i == j){
-                    strike++;
-                }else {
-                    ball++;
+    private boolean isContinueCheckResult(int[] arr) {
+        int strike = 0, ball = 0, out;
+        for (int i = 0; i < gameNumbers.length; i++) {
+            for (int z = 0; z < arr.length; z++) {
+                if (gameNumbers[i] == arr[z]) {
+                    if (i == z) {
+                        strike++;
+                    } else {
+                        ball++;
+                    }
                 }
             }
         }
-        out = GAME_COUNT - strike - ball;
-        System.out.printf("s : %d, b : %d, o : %d\n", strike, ball, out);
-        return true;
+        out = GAME_COUNT - (strike + ball);
+        System.out.printf("strike : %d, ball : %d, out : %d\n", strike, ball, out);
+
+        return false;
     }
 
     public void getUserInput() {
@@ -67,6 +70,4 @@ class NumberBaseball {
             }
         }
     }
-
-
 }

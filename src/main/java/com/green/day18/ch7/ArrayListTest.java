@@ -31,13 +31,7 @@ class ArrayListTest2{
         list.add(20);
         list.add(30);
         boolean b = list.add(45);   //실제로는 return method
-        /*
-        list.add(10.3f);
-        list.add(10.3d);
-        list.add(10L);
-        list.add("dsa");
-        list.add(new Card());
-        */
+
         int val = list.get(0);  //제네릭스로 타입이 정해져서 가능. get method도 제네릭스로 리턴타입 결정됨.
         System.out.println(list.size());        //내부 생성 배열 길이
 
@@ -45,7 +39,7 @@ class ArrayListTest2{
             System.out.printf("[%d] : %d\n",i,list.get(i));
         }
         System.out.println("-----------------");
-        for (int num : list) {
+        for (int num : list) {          //enhanced for 사용 가능
             System.out.println(num);
         }
     }

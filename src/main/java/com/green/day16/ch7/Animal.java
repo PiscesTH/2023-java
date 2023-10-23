@@ -37,6 +37,7 @@ class AnimalTest2 {
         System.out.println(ani instanceof Bulldog); //true
         System.out.println(ani instanceof Dog);     //true
         System.out.println(ani instanceof Animal);  //true
+        Bulldog bbb = (Bulldog)ani;
         System.out.println(ani instanceof Cat);     //false
         Bulldog a = (Bulldog)ani ;                  //가능
 

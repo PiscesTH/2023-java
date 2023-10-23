@@ -8,7 +8,7 @@ public class HashMapTest {
         Map map = new HashMap();    //배열과는 다르게 순서 개념 X. Object로 key, value 저장
         map.put("a", 10);           //(key , value) label
         map.put("b", 20);           // key 호출 > value 리턴
-        map.put("b", 30);           // key 중복되면 이전 값 사라짐.
+        map.put("b", 30);           // key 중복되면 이전 value 사라짐.
 
         Object obj = map.get("b");
         int val = (int) obj;
@@ -27,8 +27,5 @@ class HashMapTest2 {
         map.put("Tv", map.get("Tv") + 1);
         map.put("Tv", map.get("Tv") + 1);
         System.out.println(map.get("Tv"));
-
-
-
     }
 }
