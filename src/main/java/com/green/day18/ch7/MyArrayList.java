@@ -17,10 +17,45 @@ public class MyArrayList {
         arr = resultArr;
     }
 
+    public void add(int index, int num) {
+        int len = arr.length + 1;
+        int[] resultArr = new int[len];
+        for (int i = 0; i < index; i++) {
+            resultArr[i] = arr[i];
+        }
+        resultArr[index] = num;
+        int nextIndex = index + 1;
+        for (int i = nextIndex; i < resultArr.length; i++) {
+            int beforeIndex = i - 1;
+            resultArr[i] = arr[beforeIndex];
+        }
+        arr = resultArr;
+    }
+
+    public void add2(int index, int num) {
+        add(num);
+        int startIndex = arr.length - 1;
+        for (int i = startIndex; i > index; i--) {
+            int beforeIndex = i - 1;
+            int tmp = arr[i];
+            arr[i] = arr[beforeIndex];
+            arr[beforeIndex] = tmp;
+        }
+    }
+
+    public void addSol(int idx, int val) {
+        int[] tmp = new int[arr.length + 1];
+        tmp[idx] = val;
+        for (int i = 0; i < arr.length; i++) {
+            tmp[i < idx ? i : i + 1] = arr[i];
+        }
+        arr = tmp;
+    }
+
     @Override
     public String toString() {
         if (arr.length == 0) {
-            return "Null";
+            return "[]";
         }
         String s = String.format("[%d", arr[0]);
         for (int i = 1; i < arr.length; i++) {
@@ -43,7 +78,10 @@ class MyArrayListTest {
         System.out.println(list);
         list.add(40);
         System.out.println(list);
-
+        list.add2(1, 50);
+        System.out.println(list);
+        list.add2(3, 80);
+        System.out.println(list);
     }
 }
 

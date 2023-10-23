@@ -54,10 +54,11 @@ class ArrayListTest2{
 class ArrayListTest3{
     public static void main(String[] args) {
         List<Integer> list = new ArrayList<>();
-        System.out.println(list.size());
+        System.out.println(list.size());    //0
         list.add(10);
         list.add(20);
         list.add(30);
+        System.out.println(list.size());    //3
         list.add(40);
         System.out.println(list.toString());
         list.add(1,100);    //1번방 100 삽입, 기존 값 뒤로 밀림.
