@@ -62,5 +62,6 @@ class ArrayListTest3{
 
         list.remove(0);             //0번 방 삭제, 배열 크기 조정
         System.out.println(list);
+
     }
 }
