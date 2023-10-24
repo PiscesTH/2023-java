@@ -27,5 +27,8 @@ class HashMapTest2 {
         map.put("Tv", map.get("Tv") + 1);
         map.put("Tv", map.get("Tv") + 1);
         System.out.println(map.get("Tv"));
+
+        boolean b = map.containsKey("Audio");       //Audio 가 key 에 있는가 ?
+        System.out.println(b);
     }
 }

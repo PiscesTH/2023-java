@@ -21,7 +21,6 @@ class NumberBaseball {
         gameNumbers = new int[count];
     }
 
-
     public void start() {
         setRandomNumNotDuplicate();
         System.out.println(Arrays.toString(gameNumbers));

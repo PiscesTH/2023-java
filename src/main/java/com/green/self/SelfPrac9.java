@@ -30,7 +30,7 @@ class baskinrobbinsGame {
     public void callNumber(int input) {
         list.add(input);
         count++;
-        System.out.printf("count = %d\n",count);
+        System.out.printf("count = %d\n", count);
     }
 
     public void userTurn() {
@@ -38,7 +38,7 @@ class baskinrobbinsGame {
         System.out.println("숫자를 1 ~ 3 개 입력 해 주세요.");
         System.out.printf("현재 숫자 %d : ", list.get(list.size() - 1));
         int input = scan.nextInt();
-        while (input != count){
+        while (input != count) {
             System.out.print("다시 입력 해 주세요. : ");
             input = scan.nextInt();
         }
@@ -61,7 +61,7 @@ class baskinrobbinsGame {
         int[] tmpArr = new int[getRandomNum()];
         for (int i = 0; i < tmpArr.length; i++) {
             list.add(count);
-            System.out.printf("Computer : %d\n",count++);
+            System.out.printf("Computer : %d\n", count++);
         }
     }
 

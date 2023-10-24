@@ -1,5 +1,8 @@
 package com.green.day17.ch7;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class PolyArgumentTestVer2 {
     public static void main(String[] args) {
         Product2 p = new Product2("제품명", 1000);
@@ -137,5 +140,62 @@ class Computer2 extends Product2 {
 class Audio2 extends Product2 {
     public Audio2() {
         super("Audio", 500);
+    }
+}
+
+
+class Buyer3 {
+    private int money;
+    private int bonusPoint;
+    private Product2[] pArr;
+    private int index;
+    private final int INITIAL_MONEY;
+    private Map<String, Integer> buyItem;
+
+    public Buyer3() {
+        money = 10000;
+        bonusPoint = 0;
+        pArr = new Product2[10];
+        INITIAL_MONEY = money;
+        buyItem = new HashMap<>();
+    }
+
+    public void buy(Product2 product2) {
+        if (index == pArr.length) {
+            System.out.println("구매 불가");
+            return;
+        }
+        int price = product2.getPrice();
+        int bonusPoint = product2.getBonusPoint();
+        if (money < price) {
+            System.out.println("잔액 부족");
+            return;
+        }
+        money -= price;
+        this.bonusPoint += bonusPoint;
+        pArr[index++] = product2;
+        System.out.printf("%s 구매 완료\n", product2.getName());
+    }
+
+    public void summary() {
+        int used = INITIAL_MONEY - money;
+        System.out.printf("구매 금액 : %d만원, 남은 금액 : %d, 포인트 : %d\n", used, money, bonusPoint);
+    }
+
+    public void getPurchaseList() {
+        int comCnt = 0, tvCnt = 0 , auidoCnt = 0;
+        for (int i = 0; i < index; i++) {
+            switch (pArr[i].getName()) {
+                case "Computer":
+                    comCnt++;
+                    break;
+                case "Tv":
+                    tvCnt++;
+                    break;
+                case "Audio":
+                    auidoCnt++;
+            }
+        }
+        System.out.printf("컴퓨터 : %d대, Tv : %d대, 오디오 : %d대\n", comCnt, tvCnt, auidoCnt);
     }
 }

@@ -24,9 +24,10 @@ public class ArrayListTest {
 }
 
 class ArrayListTest2{
-    public static void main(String[] args) {
+    public static void main(String[] args) {    //int의 객체형
         List<Integer> list = new ArrayList();   //int의 reference 타입 : Integer. 서로 동일하게 사용 가능. == >> true p.491
         //제네릭스  < > 안에는 reference 타입만 가능. int 등 불가능
+        //정수값만 저장할 수 있는 List를 상속받은 객체의 주소값 ? List : interface
         list.add(10);   //Integer만 가능. 다른 타입 저장 불가.
         list.add(20);
         list.add(30);
