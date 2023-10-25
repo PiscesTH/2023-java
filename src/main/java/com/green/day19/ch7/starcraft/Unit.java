@@ -74,7 +74,7 @@ class StarcraftGame {
         Unit unit2 = new Tank();
         unit2.move(30, 15);
         Tank tank = new Tank();
-        //배열 & ArrayList(추천)
+        //배열 & ArrayList(ArrayList 사용 추천)
         List<Unit> units = new ArrayList<>();
         units.add(unit);
         units.add(unit2);

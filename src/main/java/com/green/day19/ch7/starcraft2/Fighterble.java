@@ -1,6 +1,6 @@
 package com.green.day19.ch7.starcraft2;
 
-public interface Fighterble extends Movable, Attackable {   //p.384 인터페이스 다중상속. 구현부 없어서 가능 ?
+public interface Fighterble extends Movable, Attackable {   //p.384 인터페이스 다중상속. 구현부 없어서 가능
 }
 
 interface Movable {
