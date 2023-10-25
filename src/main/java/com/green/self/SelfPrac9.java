@@ -20,8 +20,8 @@ class baskinrobbinsGame {
         CALL_MAX = 3;
         count = 1;
         list = new ArrayList<>();
-        System.out.println("입력창 안내 >> 정수만 입력해주세요.");
-
+        System.out.println("게임 안내 >> 게임 진행을 위해서 정수만 입력해 주세요.");
+        System.out.println("게임을 중단하고 싶다면 정수 외의 값을 입력해 주세요");
     }
 
     public int getRandomNum() {
@@ -31,6 +31,43 @@ class baskinrobbinsGame {
     public void callNumber(int input) {
         list.add(input);
         count++;
+    }
+
+    public boolean checkNum() {
+        return list.size() > 30;
+    }
+
+    public void computerTurn() {
+        for (int i = 0; i < getRandomNum(); i++) {
+            list.add(count);
+            System.out.printf("Computer : %d\n", count++);
+            if (checkNum()) {
+                return;
+            }
+        }
+    }
+
+    public void startGame() {
+        System.out.println("Computer turn");
+        computerTurn();
+        if (checkNum()) {
+            System.out.println("Computer 패배");
+            return;
+        }
+        System.out.println("User turn");
+        try {
+            userTurn();
+        } catch (Exception e) {
+            System.out.println("정수 외의 값을 입력하여 게임이 종료됩니다.");
+            count = 0;
+            list = new ArrayList<>();
+            return;
+        }
+        if (checkNum()) {
+            System.out.println("User 패배");
+            return;
+        }
+        startGame();
     }
 
     public void userTurn() throws Exception {
@@ -63,43 +100,5 @@ class baskinrobbinsGame {
                 return;
             }
         }
-    }
-
-    public void computerTurn() {
-        for (int i = 0; i < getRandomNum(); i++) {
-            list.add(count);
-            System.out.printf("Computer : %d\n", count++);
-            if (checkNum()) {
-                return;
-            }
-        }
-    }
-
-    public void startGame() {
-        System.out.println("Computer turn");
-        computerTurn();
-        if (checkNum()) {
-            System.out.println("Computer 패배");
-            return;
-        }
-        System.out.println("User turn");
-        try {
-            userTurn();
-        } catch (Exception e) {
-            System.out.println("정수 외의 값을 입력하여 게임이 종료됩니다.");
-            System.out.println("게임을 다시 시작해주세요.");
-            count = 0;
-            list = new ArrayList<>();
-            return;
-        }
-        if (checkNum()) {
-            System.out.println("User 패배");
-            return;
-        }
-        startGame();
-    }
-
-    public boolean checkNum() {
-        return list.size() > 30;
     }
 }
