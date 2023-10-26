@@ -10,7 +10,6 @@ public class SelfPrac10 {
         Sort sort = new Sort(arr);
 
 
-
         //배열로 >> -1 1 -7 3 -2 4 2 ans: -1 -7 -2 1 3 4 2.
     }
 }
@@ -36,5 +35,15 @@ class Sort {
         resultArr = tmpArr;
         System.out.println(Arrays.toString(resultArr));
         return tmp;
+    }
+
+    public int selectIdx(int[] arr) {
+        int minIdx = 0;
+        for (int i = 0; i < arr.length; i++) {
+            if (arr[minIdx] > arr[i]) {
+                minIdx = i;
+            }
+        }
+        return minIdx;
     }
 }
