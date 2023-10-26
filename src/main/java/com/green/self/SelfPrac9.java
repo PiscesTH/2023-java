@@ -6,17 +6,17 @@ import java.util.Scanner;
 
 public class SelfPrac9 {
     public static void main(String[] args) {
-        baskinrobbinsGame game = new baskinrobbinsGame();
+        BaskinrobbinsGame game = new BaskinrobbinsGame();
         game.startGame();
     }
 }
 
-class baskinrobbinsGame {
+class BaskinrobbinsGame {
     private List<Integer> list;
     private int count;
     public final int CALL_MAX;
 
-    public baskinrobbinsGame() {
+    public BaskinrobbinsGame() {
         CALL_MAX = 3;
         count = 1;
         list = new ArrayList<>();
