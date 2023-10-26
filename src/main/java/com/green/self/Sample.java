@@ -15,7 +15,7 @@ public class Sample {
 class Solution {
     public int solution(int[] array) {
         int answer = 0;
-        int[] numCnt = new int[10];
+        int[] numCnt = new int[1000];
         for (int i = 0; i < array.length; i++) {
             numCnt[array[i]]++;
         }
@@ -30,17 +30,16 @@ class Solution {
                 return -1;
             }
         }
-        System.out.println(Arrays.toString(numCnt));
         answer = maxIdx;
         return answer;
     }
 
     public static int getRandomLen() {
-        return (int) (Math.random() * 10000);
+        return (int) (Math.random() * 99) + 1;
     }
 
     public static int getRandomVal() {
-        return (int) (Math.random() * 10);
+        return (int) (Math.random() * 1000);
     }
 
     public static int[] makeArr(int len) {
