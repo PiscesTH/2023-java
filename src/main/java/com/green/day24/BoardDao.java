@@ -17,7 +17,7 @@ public class BoardDao {
             ps.setString(1, entity.getTitle());
             ps.setString(2, entity.getCtnts());
             ps.setString(3, entity.getWriter());
-            result = ps.executeUpdate();
+            result = ps.executeUpdate();            //SQL문 실행
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
