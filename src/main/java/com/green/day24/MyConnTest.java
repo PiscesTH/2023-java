@@ -4,6 +4,8 @@ import java.awt.*;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import java.util.Arrays;
+import java.util.List;
 
 public class MyConnTest {
     public static void main(String[] args) {
@@ -20,7 +22,7 @@ public class MyConnTest {
     }
 }
 
-class MyConnTest2{
+class MyConnTest2 {
     public static void main(String[] args) {
         BoardEntity entity = new BoardEntity();
         entity.setTitle("A");
@@ -31,7 +33,7 @@ class MyConnTest2{
     }
 }
 
-class MyConnTest3{
+class MyConnTest3 {
     public static void main(String[] args) {
         BoardEntity entity = new BoardEntity();
         entity.setIboard(1);
@@ -41,7 +43,7 @@ class MyConnTest3{
     }
 }
 
-class MyConnTest4{
+class MyConnTest4 {
     public static void main(String[] args) {
         BoardEntity entity = new BoardEntity();
         entity.setIboard(10);
@@ -51,5 +53,21 @@ class MyConnTest4{
 
         int row = BoardDao.updBoard(entity);
         System.out.println(row);
+    }
+}
+
+class MyConnTest5 {
+    public static void main(String[] args) {
+        List<BoardEntity> list = BoardDao.selBoardList();
+        for (BoardEntity entity : list) {
+            System.out.println(entity);
+        }
+    }
+}
+
+class MyConnTest6 {
+    public static void main(String[] args) {
+        BoardEntity result = BoardDao.selBoardById(2);
+        System.out.println(result);
     }
 }
