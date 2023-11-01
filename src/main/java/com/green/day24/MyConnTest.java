@@ -1,5 +1,6 @@
 package com.green.day24;
 
+import java.awt.*;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
@@ -22,9 +23,9 @@ public class MyConnTest {
 class MyConnTest2{
     public static void main(String[] args) {
         BoardEntity entity = new BoardEntity();
-        entity.setTitle("insert 배움");
-        entity.setCtnts("DB에 값넣어봄");
-        entity.setWriter("오호라");
+        entity.setTitle("A");
+        entity.setCtnts("B");
+        entity.setWriter("C");
         int row = BoardDao.insBoard(entity);    //영향 받은 레코드 수 리턴
         System.out.println("row = " + row);     //제대로 작동안하면 0 리턴
     }
@@ -32,6 +33,23 @@ class MyConnTest2{
 
 class MyConnTest3{
     public static void main(String[] args) {
+        BoardEntity entity = new BoardEntity();
+        entity.setIboard(1);
 
+        int row = BoardDao.delBoard(entity);
+        System.out.println(row);
+    }
+}
+
+class MyConnTest4{
+    public static void main(String[] args) {
+        BoardEntity entity = new BoardEntity();
+        entity.setIboard(10);
+        entity.setTitle("수정 제목");
+        entity.setCtnts("수정 내용");
+        entity.setWriter("수정자");
+
+        int row = BoardDao.updBoard(entity);
+        System.out.println(row);
     }
 }
