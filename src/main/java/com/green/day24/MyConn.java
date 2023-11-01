@@ -11,9 +11,9 @@ public class MyConn {
         Connection conn = null;
         try {
             Class.forName("org.mariadb.jdbc.Driver");
-            conn = DriverManager.getConnection(DB_URL, DB_USER, DB_PASSWORD);  // 결국 연결을 위한 메소드.
+            conn = DriverManager.getConnection(DB_URL, DB_USER, DB_PASSWORD);
             // Java와 DB를 네트워크 상에서 연결해주는 메소드.
-            //연결에 성공하면 DB와 연결된 상태를 Connection 객체로 표현하여 반환한다.
+            // 연결에 성공하면 DB와 연결된 상태를 Connection 객체로 표현하여 반환한다.
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -46,6 +46,6 @@ public class MyConn {
                 e.printStackTrace();
             }
         }
-        close(conn, ps);
+        close(conn, ps);        //메서드 재사용
     }
 }

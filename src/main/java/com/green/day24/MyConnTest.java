@@ -67,7 +67,7 @@ class MyConnTest5 {
 
 class MyConnTest6 {
     public static void main(String[] args) {
-        BoardEntity result = BoardDao.selBoardById(2);
+        BoardEntity result = BoardDao.selBoardById(7);
         System.out.println(result);
     }
 }
