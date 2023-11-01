@@ -46,7 +46,7 @@ public class BoardDao {
     }
     public static int updBoard(BoardEntity entity){
         int result = 0;
-        String sql = "UPDATE board SET title = ?, ctnts = ?, writer = ? WHERE iboard = ?";
+        String sql = "UPDATE board SET title = ?, ctnts = ?, writer = ?,updated_at = NOW() WHERE iboard = ?";
         Connection conn = null;
         PreparedStatement ps = null;
         try {
