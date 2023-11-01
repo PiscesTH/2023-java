@@ -29,3 +29,9 @@ class MyConnTest2{
         System.out.println("row = " + row);     //제대로 작동안하면 0 리턴
     }
 }
+
+class MyConnTest3{
+    public static void main(String[] args) {
+
+    }
+}
