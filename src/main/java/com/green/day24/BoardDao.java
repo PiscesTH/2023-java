@@ -2,6 +2,9 @@ package com.green.day24;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.util.ArrayList;
+import java.util.List;
 
 //dao : data access object
 public class BoardDao {
@@ -27,6 +30,36 @@ public class BoardDao {
         return result;
     }
 
+    public static List<BoardEntity> selBoardList() {
+        List<BoardEntity> list = new ArrayList<>();
+        Connection conn = null;
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        String sql = "SELECT iboard, title, writer, created_At FROM board";
+        try {
+            conn = MyConn.getConn();
+            ps = conn.prepareStatement(sql);
+            rs = ps.executeQuery();      //select 는 무조건 executeQuery() 사용
+            while (rs.next()) {          //rs.next() : 다음 레코드를 선택 >> 있으면 true / 없으면 false 리턴
+                int iboard = rs.getInt("iboard");
+                String title = rs.getString("title");
+                String writer = rs.getString("writer");
+                String createdAt = rs.getString("created_at");
+                BoardEntity entity = new BoardEntity();
+                entity.setIboard(iboard);
+                entity.setTitle(title);
+                entity.setWriter(writer);
+                entity.setCreatedAt(createdAt);
+                list.add(entity);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            MyConn.close(conn, ps, rs);
+        }
+        return list;
+    }
+
     public static int delBoard(BoardEntity entity) {
         int result = 0;
         String sql = "DELETE FROM board where iboard = ?";
@@ -44,9 +77,10 @@ public class BoardDao {
         }
         return result;
     }
-    public static int updBoard(BoardEntity entity){
+
+    public static int updBoard(BoardEntity entity) {
         int result = 0;
-        String sql = "UPDATE board SET title = ?, ctnts = ?, writer = ?,updated_at = NOW() WHERE iboard = ?";
+        String sql = "UPDATE board SET title = ?, ctnts = ?, writer = ?, updated_at = NOW() WHERE iboard = ?";
         Connection conn = null;
         PreparedStatement ps = null;
         try {

@@ -1,9 +1,6 @@
 package com.green.day24;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
+import java.sql.*;
 
 public class MyConn {
     private static final String DB_URL = "jdbc:mariadb://localhost:3306/board_ver1";
@@ -37,5 +34,16 @@ public class MyConn {
                 e.printStackTrace();
             }
         }
+    }
+
+    public static void close(Connection conn, PreparedStatement ps, ResultSet rs) {   //열었던 순서의 역순으로 닫아준다.
+        if (rs != null) {
+            try {
+                rs.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+        close(conn, ps);
     }
 }
