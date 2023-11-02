@@ -65,7 +65,7 @@ public class BoardDao {
         return list;
     }
 
-    public static BoardEntity selBoardById(int iboard) {
+    public static BoardEntity selBoardById(int id) {
         BoardEntity result = new BoardEntity();
         Connection conn = null;
         PreparedStatement ps = null;
@@ -74,10 +74,10 @@ public class BoardDao {
         try {
             conn = MyConn.getConn();
             ps = conn.prepareStatement(sql);
-            ps.setInt(1, iboard);
+            ps.setInt(1, id);
             rs = ps.executeQuery();      //select 는 무조건 executeQuery() 사용
             if (rs.next()) {             //레코드 하나만 가져올 때 if 사용. while 도 사용 가능하긴 함.
-                result.setIboard(iboard);
+                result.setIboard(id);
                 result.setCtnts(rs.getString("ctnts"));
                 result.setUpdatedAt(rs.getString("updated_at"));
                 result.setTitle(rs.getString("title"));
@@ -124,6 +124,26 @@ public class BoardDao {
             ps.setString(2, entity.getCtnts());
             ps.setString(3, entity.getWriter());
             ps.setInt(4, entity.getIboard());
+            result = ps.executeUpdate();
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            MyConn.close(conn, ps);
+        }
+        return result;
+    }
+    public static int insBoardVer2(BoardEntity entity) {
+        int result = 0;
+        String sql = "INSERT INTO board SET title = ?, ctnts = ?, writer = ?";
+        //insert문 다른 방식
+        Connection conn = null;
+        PreparedStatement ps = null;
+        try {
+            conn = MyConn.getConn();
+            ps = conn.prepareStatement(sql);
+            ps.setString(1, entity.getTitle());
+            ps.setString(2, entity.getCtnts());
+            ps.setString(3, entity.getWriter());
             result = ps.executeUpdate();
         } catch (Exception e) {
             e.printStackTrace();

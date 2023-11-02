@@ -52,7 +52,20 @@ class Practice {
 
     public static int insBoard(BoardEntity entity){
         int result = 0;
-        String sql = "INSERT INTO 테이블 (컬럼,컬럼) ";
+        String sql = "INSERT INTO 테이블 (컬럼,컬럼) VALUES (?, ?)";
+        Connection conn = null;
+        PreparedStatement ps = null;
+        try{
+            conn = MyConn.getConn();
+            ps = conn.prepareStatement(sql);
+            ps.setString(1,"입력");
+            ps.setString(2,"입력2");
+            result = ps.executeUpdate();
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            MyConn.close(conn, ps);
+        }
         return result;
     }
 }
