@@ -53,16 +53,16 @@ class Practice {
         return result;
     }
 
-    public static int insBoard(BoardEntity entity){
+    public static int insBoard(BoardEntity entity) {
         int result = 0;
         String sql = "INSERT INTO 테이블 (컬럼,컬럼) VALUES (?, ?)";
         Connection conn = null;
         PreparedStatement ps = null;
-        try{
+        try {
             conn = MyConn.getConn();
             ps = conn.prepareStatement(sql);
-            ps.setString(1,"입력");
-            ps.setString(2,"입력2");
+            ps.setString(1, "입력");
+            ps.setString(2, "입력2");
             result = ps.executeUpdate();
         } catch (Exception e) {
             e.printStackTrace();
@@ -72,13 +72,43 @@ class Practice {
         return result;
     }
 
-    public static List<BoardEntity> selBoard(){
+    public static List<BoardEntity> selBoard() {
         List<BoardEntity> list = new ArrayList<>();
         String sql = "SELECT * FROM 테이블";
         Connection conn = null;
         PreparedStatement ps = null;
         ResultSet rs = null;
-
+        try {
+            conn = MyConn.getConn();
+            ps = conn.prepareStatement(sql);
+            rs = ps.executeQuery();
+            while (rs.next()) {
+                BoardEntity entity = new BoardEntity();
+                entity.setIboard(rs.getInt("iboard"));
+                entity.setTitle(rs.getString("title"));
+                entity.setCtnts(rs.getString("ctnts"));
+                entity.setWriter(rs.getString("writer"));
+                entity.setCreatedAt(rs.getString("created_at"));
+                entity.setUpdatedAt(rs.getString("updated_at"));
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            MyConn.close(conn, ps, rs);
+        }
         return list;
+    }
+
+    public static BoardEntity selBoardId(int id){
+        BoardEntity entity = new BoardEntity();
+        Connection conn = null;
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        try{
+
+        } catch (Exception e){
+
+        }
+        return entity;
     }
 }
