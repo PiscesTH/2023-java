@@ -99,16 +99,29 @@ class Practice {
         return list;
     }
 
-    public static BoardEntity selBoardId(int id){
-        BoardEntity entity = new BoardEntity();
+    public static BoardEntity selBoardId(int id) {
+        String sql = "SELECT * FROM 테이블 WHERE 컬럼 = ?";
         Connection conn = null;
         PreparedStatement ps = null;
         ResultSet rs = null;
-        try{
-
-        } catch (Exception e){
+        try {
+            conn = MyConn.getConn();
+            ps = conn.prepareStatement(sql);
+            ps.setInt(1, id);
+            rs = ps.executeQuery();
+            if (rs.next()) {
+                BoardEntity entity = new BoardEntity();
+                entity.setIboard(id);
+                entity.setTitle(rs.getString("title"));
+                entity.setCtnts(rs.getString("ctnts"));
+                entity.setWriter(rs.getString("writer"));
+                entity.setUpdatedAt(rs.getString("updated_at"));
+                entity.setCreatedAt(rs.getString("created_at"));
+                return entity;
+            }
+        } catch (Exception e) {
 
         }
-        return entity;
+        return null;
     }
 }
