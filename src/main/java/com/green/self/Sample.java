@@ -5,7 +5,9 @@ import com.green.day24.MyConn;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 public class Sample {
     public static void main(String[] args) {
@@ -67,5 +69,11 @@ class Practice {
             MyConn.close(conn, ps);
         }
         return result;
+    }
+
+    public static List<BoardEntity> selBoard(){
+        List<BoardEntity> list = new ArrayList<>();
+        String sql = "SELECT * FROM 테이블";
+        return list;
     }
 }
