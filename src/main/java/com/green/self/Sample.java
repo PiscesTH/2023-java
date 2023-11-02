@@ -1,53 +1,58 @@
 package com.green.self;
 
+import com.green.day24.BoardEntity;
+import com.green.day24.MyConn;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.util.Arrays;
 
 public class Sample {
     public static void main(String[] args) {
-        //home test
-        int[] array = Solution.makeArr(Solution.getRandomLen());
-        Solution s = new Solution();
-        int answer = s.solution(array);
-        System.out.println(answer);
     }
 }
 
-class Solution {
-    public int solution(int[] array) {
-        int answer = 0;
-        int[] numCnt = new int[1000];
-        for (int i = 0; i < array.length; i++) {
-            numCnt[array[i]]++;
+class Practice {
+    public static int upBoard(BoardEntity entity) {
+        int result = 0;
+        String sql = "UPDATE 테이블명 SET 컬럼명 = ? WHERE 컬럼명 = ?";
+        Connection conn = null;
+        PreparedStatement ps = null;
+        try {
+            conn = MyConn.getConn();
+            ps = conn.prepareStatement(sql);
+            ps.setString(1, "수정내용");
+            ps.setInt(2, 1);
+            result = ps.executeUpdate();
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            MyConn.close(conn, ps);
         }
-        int maxIdx = 0;
-        for (int i = 0; i < numCnt.length; i++) {
-            if (numCnt[maxIdx] < numCnt[i]) {
-                maxIdx = i;
-            }
-        }
-        for (int i = 0; i < numCnt.length; i++) {
-            if (numCnt[maxIdx] == numCnt[i] && maxIdx != i) {
-                return -1;
-            }
-        }
-        answer = maxIdx;
-        return answer;
+        return result;
     }
 
-    public static int getRandomLen() {
-        return (int) (Math.random() * 99) + 1;
-    }
-
-    public static int getRandomVal() {
-        return (int) (Math.random() * 1000);
-    }
-
-    public static int[] makeArr(int len) {
-        int[] tmpArr = new int[len];
-        for (int i = 0; i < tmpArr.length; i++) {
-            tmpArr[i] = getRandomVal();
+    public static int delBoard(BoardEntity entity) {
+        int result = 0;
+        String sql = "DELETE FROM 테이블 WHERE 컬럼명 = ?";
+        Connection conn = null;
+        PreparedStatement ps = null;
+        try {
+            conn = MyConn.getConn();
+            ps = conn.prepareStatement(sql);
+            ps.setInt(1, 1);
+            result = ps.executeUpdate();
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            MyConn.close(conn, ps);
         }
-        return tmpArr;
+        return result;
+    }
+
+    public static int insBoard(BoardEntity entity){
+        int result = 0;
+        String sql = "INSERT INTO 테이블 (컬럼,컬럼) ";
+        return result;
     }
 }
-
