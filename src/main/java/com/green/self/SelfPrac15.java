@@ -2,7 +2,7 @@ package com.green.self;
 
 public class SelfPrac15 {
     public static void main(String[] args) {
-        String s = "1                     a                              w                  qwd           s";
+        String s = "1s";
         S15 s15 = new S15();
         String result = s15.solution(s);
         System.out.println(result);
