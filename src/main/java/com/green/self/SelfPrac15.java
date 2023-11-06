@@ -2,7 +2,7 @@ package com.green.self;
 
 public class SelfPrac15 {
     public static void main(String[] args) {
-        String s = "";
+        String s = "1                     a                              w                  qwd           s";
         S15 s15 = new S15();
         String result = s15.solution(s);
         System.out.println(result);
@@ -21,10 +21,13 @@ s는 알파벳과 숫자, 공백문자(" ")로 이루어져 있습니다.
 공백문자가 연속해서 나올 수 있습니다.
  */
 
-class S15{
-    public String solution(String s){
+class S15 {
+    public String solution(String s) {
         String[] arr = s.split(" ");
         for (int i = 0; i < arr.length; i++) {
+            if ("".equals(arr[i])) {
+                continue;
+            }
             arr[i] = arr[i].toUpperCase().charAt(0) +
                     arr[i].substring(1).toLowerCase();
         }
