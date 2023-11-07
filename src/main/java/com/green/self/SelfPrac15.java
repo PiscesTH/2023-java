@@ -36,6 +36,7 @@ class S15 {
             sb.append(" ");
             sb.append(arr[i]);
         }
-        return sb.toString().trim();
+        sb.delete(0,1);
+        return sb.toString();
     }
 }

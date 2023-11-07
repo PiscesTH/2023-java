@@ -32,6 +32,6 @@ public class TvFactory {
                 tv = new LGTv(speaker);
                 break;
         }
-        return null;
+        return tv;
     }
 }
