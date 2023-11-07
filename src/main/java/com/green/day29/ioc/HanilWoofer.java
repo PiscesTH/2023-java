@@ -1,4 +1,4 @@
-package com.green.day29.normal2;
+package com.green.day29.ioc;
 
 import com.green.day29.Woofer;
 
