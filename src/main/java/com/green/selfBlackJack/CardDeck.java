@@ -15,8 +15,22 @@ public class CardDeck {
         return cardDeck;
     }
 
-    public static Card[] makeCardDeck(){
+    public static Card[] makeCardDeck() {
+        Card[] cards = new Card[52];
+        String[] patter = {"Spade", "Clover", "Heart", "Diamond"};
 
+
+        return null;
+    }
+
+    public String getCardNum(int number) {
+
+        switch (String.valueOf(number)) {
+            case "1":
+                return "A";
+            case "11":
+                return "J";
+        }
 
         return null;
     }

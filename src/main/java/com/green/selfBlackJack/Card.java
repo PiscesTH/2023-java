@@ -1,18 +1,18 @@
 package com.green.selfBlackJack;
 
 public class Card {
-    private int number;
+    private String number;
     private String patter;
 
     public Card() {
     }
 
-    public Card(int number, String patter) {
+    public Card(String number, String patter) {
         this.number = number;
         this.patter = patter;
     }
 
-    public int getNumber() {
+    public String getNumber() {
         return number;
     }
 
@@ -20,7 +20,7 @@ public class Card {
         return patter;
     }
 
-    public void setNumber(int number) {
+    public void setNumber(String number) {
         this.number = number;
     }
 
