@@ -14,4 +14,10 @@ public class CardDeck {
     public Card[] getCardDeck() {
         return cardDeck;
     }
+
+    public static Card[] makeCardDeck(){
+
+
+        return null;
+    }
 }
