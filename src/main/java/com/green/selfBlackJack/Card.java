@@ -2,14 +2,14 @@ package com.green.selfBlackJack;
 
 public class Card {
     private String number;
-    private String patter;
+    private String pattern;
 
     public Card() {
     }
 
     public Card(String number, String patter) {
         this.number = number;
-        this.patter = patter;
+        this.pattern = patter;
     }
 
     public String getNumber() {
@@ -17,7 +17,7 @@ public class Card {
     }
 
     public String getPatter() {
-        return patter;
+        return pattern;
     }
 
     public void setNumber(String number) {
@@ -25,6 +25,11 @@ public class Card {
     }
 
     public void setPatter(String patter) {
-        this.patter = patter;
+        this.pattern = patter;
+    }
+
+    @Override
+    public String toString(){
+        return String.format("pattern = %s, number = %s\n", pattern, number);
     }
 }
