@@ -26,5 +26,13 @@ public class SelfPrac18 {
 
         list.remove("asd");
         list.forEach(System.out::println);
+
+        String str = "12/25/2023";
+        String[] arr = str.split("/");
+        List<String> strList = new ArrayList<>(Arrays.asList(arr));
+        strList.add(0,strList.get(2));
+        strList.remove(3);
+        String answer = String.join("-", strList);
+        System.out.println(answer);
     }
 }
