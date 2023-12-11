@@ -31,7 +31,7 @@ public class SelfPrac18 {
         String[] arr = str.split("/");
         List<String> strList = new ArrayList<>(Arrays.asList(arr));
         strList.add(0,strList.get(2));
-        strList.remove(3);
+        strList.remove(strList.size()-1);
         String answer = String.join("-", strList);
         System.out.println(answer);
     }
