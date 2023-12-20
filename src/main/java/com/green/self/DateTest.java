@@ -21,9 +21,15 @@ public class DateTest {
         List<String> list = new ArrayList<>();
         list.add(null);
         list.add("null 테스트");
+        list.add("");
+        list.add(" ");
 
-        list.forEach(System.out::println);
         System.out.println(list.get(0));
-        System.out.println(list.get(0).isBlank());
+        System.out.println(list.get(1).isBlank());
+        System.out.println(list.get(2).isBlank());
+        System.out.println(list.get(3).isBlank());
+        System.out.println(list.get(0) == null);
+
+
     }
 }
