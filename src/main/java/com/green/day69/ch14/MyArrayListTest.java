@@ -13,7 +13,7 @@ public class MyArrayListTest {
 
 //        list.print();
         list.forEach(i -> System.out.println("i : " + i));
-        list.removeIf(v -> v % 15 == 0);
+        list.removeIf(v -> v % 20 == 0);
         System.out.println("removeIf 결과");
         list.forEach(i -> System.out.println("i : " + i));
     }

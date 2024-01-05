@@ -1,7 +1,9 @@
 package com.green.day69.ch14;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.function.Consumer;
 import java.util.stream.Collectors;
 
@@ -10,7 +12,6 @@ public class LambdaEx4 {
         List<Integer> list = new ArrayList<>();
         for (int i = 0; i < 10; i++) {
             list.add(i + 10);
-            list.add(i + 16);
         }
 //        list.forEach(System.out::println);  //forEach() 파라미터에 들어가는 것 : 인터페이스 consumer 를 상속받는 객체의 주소값
         List<Integer> list2 = list.stream().filter(i -> i % 2 == 0).distinct().sorted().toList();
@@ -28,6 +29,12 @@ public class LambdaEx4 {
 
         list.removeIf(i -> i % 2 == 0);
         list.forEach(System.out::println);
+        System.out.println("----------replaceAll----------");
+//        list.replaceAll(v -> v * 2);
+        list.replaceAll(v -> v > 15 ? v : v * 2);
+        list.forEach(System.out::println);
+
+        Map<String, String> map = new HashMap<>();
     }
 }
 
