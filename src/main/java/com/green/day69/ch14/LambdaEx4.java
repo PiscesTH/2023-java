@@ -16,25 +16,29 @@ public class LambdaEx4 {
 //        list.forEach(System.out::println);  //forEach() 파라미터에 들어가는 것 : 인터페이스 consumer 를 상속받는 객체의 주소값
         List<Integer> list2 = list.stream().filter(i -> i % 2 == 0).distinct().sorted().toList();
 //        list2.forEach(System.out::println);
-        System.out.println("--------------------------------");
+//        System.out.println("--------------------------------");
         /*list.forEach(new Consumer<Integer>() {
             @Override
             public void accept(Integer integer) {
                 System.out.println("new Consumer : " + integer);
             }
         });*/
-        System.out.println("--------------------------------");
+//        System.out.println("--------------------------------");
 //        list.forEach(new MyConsumer<Integer>());
 
 
         list.removeIf(i -> i % 2 == 0);
-        list.forEach(System.out::println);
-        System.out.println("----------replaceAll----------");
+//        list.forEach(System.out::println);
+//        System.out.println("----------replaceAll----------");
 //        list.replaceAll(v -> v * 2);
         list.replaceAll(v -> v > 15 ? v : v * 2);
-        list.forEach(System.out::println);
+//        list.forEach(System.out::println);
 
         Map<String, String> map = new HashMap<>();
+        map.put("name", "홍길동");
+        map.put("age", "23세");
+        map.put("height", "172cm");
+        map.forEach((k, v) -> System.out.printf("%s : %s\n", k, v));
     }
 }
 
