@@ -33,6 +33,7 @@ class Juice {
 
 class Juicer<T> {
     static Juice makeJuice(FruitBox<? extends Fruit> box) {     // ? : 와일드카드
+        //? extends Fruit : Fruit과 Fruit 자식 클래스  <->  ? super Fruit : Fruit과 Fruit 부모 클래스
         String tmp = "";
         for (Fruit fruit : box.getList()) {
             tmp += fruit + " ";
